@@ -1,0 +1,104 @@
+{
+  "currentIndex": 1,
+  "tabs": [
+    {
+      "name": "工具",
+      "icon": "icon-tool",
+      "type": "blank",
+      "componentIndex": 2,
+      "storage": {
+        "formData": {
+          "key_word": "明日方舟",
+          "image_num": 10
+        },
+        "currentToolName": "image_crawler",
+        "lastToolCallResponse": {
+          "content": [
+            {
+              "type": "text",
+              "text": "[ImageResult(url='https://i.ytimg.com/vi/Wc4c7Xs_xH8/maxresdefault.jpg', title='', source='bing'), ImageResult(url='https://i.ytimg.com/vi/LcdFb0PGM9A/maxresdefault.jpg', title='', source='bing'), ImageResult(url='https://i.ytimg.com/vi/7zAtX-vpOc8/maxresdefault.jpg', title='', source='bing'), ImageResult(url='https://i.ytimg.com/vi/JCSbPeniseA/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgWShTMA8=', title='', source='bing'), ImageResult(url='https://i.ytimg.com/vi/B3HDYAvr6CI/maxresdefault.jpg', title='', source='bing'), ImageResult(url='https://i.ytimg.com/vi/Qig7UQSRX_4/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGFAgYyhlMA8=', title='', source='bing'), ImageResult(url='https://i.ytimg.com/vi/5EJgpOsAMmM/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CIAC0AWKAgwIABABGE0gWyhlMA8=', title='', source='bing'), ImageResult(url='https://i.ytimg.com/vi/LAG6lhYaWPo/maxresdefault.jpg', title='', source='bing'), ImageResult(url='https://i.ytimg.com/vi/W_cwIwiviK8/maxresdefault.jpg', title='', source='bing'), ImageResult(url='https://i.ytimg.com/vi/4xGUs-gBR4c/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGHIgVCg0MA8=', title='', source='bing')]"
+            }
+          ],
+          "isError": false
+        }
+      }
+    },
+    {
+      "name": "交互测试",
+      "icon": "icon-robot",
+      "type": "blank",
+      "componentIndex": 3,
+      "storage": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "请帮我找几张明日方舟的图片",
+            "extraInfo": {
+              "created": 1746297330172,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_de7kfh2klinqo69j7vdzdqln",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "image_crawler",
+                  "arguments": "{\"key_word\":\"明日方舟\",\"image_num\":5}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1746297331074,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_de7kfh2klinqo69j7vdzdqln",
+            "content": [
+              {
+                "type": "text",
+                "text": "[ImageResult(url='https://i.ytimg.com/vi/Wc4c7Xs_xH8/maxresdefault.jpg', title='', source='bing'), ImageResult(url='https://i.ytimg.com/vi/LcdFb0PGM9A/maxresdefault.jpg', title='', source='bing'), ImageResult(url='https://i.ytimg.com/vi/7zAtX-vpOc8/maxresdefault.jpg', title='', source='bing'), ImageResult(url='https://i.ytimg.com/vi/JCSbPeniseA/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgWShTMA8=', title='', source='bing'), ImageResult(url='https://i.ytimg.com/vi/B3HDYAvr6CI/maxresdefault.jpg', title='', source='bing')]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1746297333115,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "Here are some images related to \"明日方舟\" (Arknights) that I found:\n\n1. ![Image 1](https://i.ytimg.com/vi/Wc4c7Xs_xH8/maxresdefault.jpg)\n2. ![Image 2](https://i.ytimg.com/vi/LcdFb0PGM9A/maxresdefault.jpg)\n3. ![Image 3](https://i.ytimg.com/vi/7zAtX-vpOc8/maxresdefault.jpg)\n4. ![Image 4](https://i.ytimg.com/vi/JCSbPeniseA/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgWShTMA8=)\n5. ![Image 5](https://i.ytimg.com/vi/B3HDYAvr6CI/maxresdefault.jpg)\n\nYou can click on the links to view the images. Let me know if you need more!",
+            "extraInfo": {
+              "created": 1746297337101,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          }
+        ],
+        "settings": {
+          "modelIndex": 15,
+          "enableTools": [
+            {
+              "name": "image_crawler",
+              "description": "根据关键词从指定搜索引擎爬取图片",
+              "enabled": true
+            }
+          ],
+          "enableWebSearch": false,
+          "temperature": 0.7,
+          "contextLength": 10,
+          "systemPrompt": "markdown图像格式"
+        }
+      }
+    }
+  ]
+}

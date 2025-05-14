@@ -1,0 +1,321 @@
+{
+  "currentIndex": 1,
+  "tabs": [
+    {
+      "name": "工具",
+      "icon": "icon-tool",
+      "type": "blank",
+      "componentIndex": 2,
+      "storage": {
+        "formData": {
+          "code": ""
+        },
+        "currentToolName": "execute_blender_code",
+        "lastToolCallResponse": {
+          "content": [
+            {
+              "type": "text",
+              "text": "Error getting scene info: Communication error with Blender: Connection closed before receiving any data"
+            }
+          ],
+          "isError": false
+        }
+      }
+    },
+    {
+      "name": "交互测试",
+      "icon": "icon-robot",
+      "type": "blank",
+      "componentIndex": 3,
+      "storage": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "请帮我完成当前图中模型的拓扑优化，让皮肤表面更加光滑。",
+            "extraInfo": {
+              "created": 1746521688368,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "要完成当前图中模型的拓扑优化，让皮肤表面更加光滑，我们可以使用Blender的Remesh和Smooth工具。以下是具体步骤：\n\n1. **选择模型**：首先，我们需要选择要进行拓扑优化的模型。\n2. **应用Remesh修改器**：Remesh修改器可以帮助我们重新生成模型的拓扑结构，使其更加均匀。\n3. **应用Smooth工具**：Smooth工具可以帮助我们平滑模型的表面。\n\n让我们逐步执行这些操作。\n\n首先，我们需要获取当前场景中的模型信息，以便选择正确的模型进行操作。",
+            "tool_calls": [
+              {
+                "id": "call_3se2oa6nrktmxlkji5l83w47",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "get_scene_info",
+                  "arguments": "{}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1746521717467,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_3se2oa6nrktmxlkji5l83w47",
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"name\": \"Scene\",\n  \"object_count\": 4,\n  \"objects\": [\n    {\n      \"name\": \"world\",\n      \"type\": \"EMPTY\",\n      \"location\": [\n        0.0,\n        0.0,\n        0.0\n      ]\n    },\n    {\n      \"name\": \"68072d2efe6624a74c33c8fc.obj\",\n      \"type\": \"MESH\",\n      \"location\": [\n        0.0,\n        0.0,\n        0.0\n      ]\n    },\n    {\n      \"name\": \"Light\",\n      \"type\": \"LIGHT\",\n      \"location\": [\n        4.08,\n        1.01,\n        5.9\n      ]\n    },\n    {\n      \"name\": \"Camera\",\n      \"type\": \"CAMERA\",\n      \"location\": [\n        7.36,\n        -6.93,\n        4.96\n      ]\n    }\n  ],\n  \"materials_count\": 2\n}"
+              }
+            ],
+            "extraInfo": {
+              "created": 1746521717483,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_h2au9jaicljxwv0e33szcy63",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "get_object_info",
+                  "arguments": "{\"object_name\": \"68072d2efe6624a74c33c8fc.obj\"}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1746521721085,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_h2au9jaicljxwv0e33szcy63",
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"name\": \"68072d2efe6624a74c33c8fc.obj\",\n  \"type\": \"MESH\",\n  \"location\": [\n    0.0,\n    0.0,\n    0.0\n  ],\n  \"rotation\": [\n    0.0,\n    0.0,\n    0.0\n  ],\n  \"scale\": [\n    1.0,\n    1.0,\n    1.0\n  ],\n  \"visible\": true,\n  \"materials\": [],\n  \"world_bounding_box\": [\n    [\n      -0.5813920497894287,\n      -0.5203779935836792,\n      -0.9998680353164673\n    ],\n    [\n      0.6228654384613037,\n      0.5207858085632324,\n      0.9995002746582031\n    ]\n  ],\n  \"mesh\": {\n    \"vertices\": 1118453,\n    \"edges\": 3358761,\n    \"polygons\": 2239430\n  }\n}"
+              }
+            ],
+            "extraInfo": {
+              "created": 1746521721101,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "为了更好地优化模型的拓扑结构并使皮肤表面更加光滑，我们可以执行以下步骤：\n\n1. **减少多边形数量**：通过使用Decimate修改器来减少模型的多边形数量，同时尽量保持模型的形状。\n2. **平滑表面**：使用Subdivision Surface修改器来平滑模型的表面。\n\n以下是具体的Blender代码步骤：\n\n### 第一步：减少多边形数量\n```python\nimport bpy\n\n# 选择模型\nobj = bpy.data.objects['68072d2efe6624a74c33c8fc.obj']\n\n# 添加Decimate修改器\ndecimate_mod = obj.modifiers.new(name=\"Decimate\", type='DECIMATE')\ndecimate_mod.ratio = 0.5  # 调整这个值以控制减少的多边形数量\n```\n\n### 第二步：平滑表面\n```python\n# 添加Subdivision Surface修改器\nsubdiv_mod = obj.modifiers.new(name=\"Subdivision\", type='SUBSURF')\nsubdiv_mod.levels = 2  # 调整这个值以控制平滑程度\n```\n\n### 第三步：应用修改器\n```python\n# 应用Decimate修改器\nbpy.context.view_layer.objects.active = obj\nbpy.ops.object.modifier_apply(modifier=decimate_mod.name)\n\n# 应用Subdivision Surface修改器\nbpy.ops.object.modifier_apply(modifier=subdiv_mod.name)\n```\n\n请执行以下代码来完成这些步骤。\n\n```python\nfunction<｜tool▁sep｜>execute_blender_code\n```json\n{\"code\": \"import bpy\\n\\n# 选择模型\\nobj = bpy.data.objects['68072d2efe6624a74c33c8fc.obj']\\n\\n# 添加Decimate修改器\\ndecimate_mod = obj.modifiers.new(name=\\\"Decimate\\\", type='DECIMATE')\\ndecimate_mod.ratio = 0.5  # 调整这个值以控制减少的多边形数量\\n\\n# 添加Subdivision Surface修改器\\nsubdiv_mod = obj.modifiers.new(name=\\\"Subdivision\\\", type='SUBSURF')\\nsubdiv_mod.levels = 2  # 调整这个值以控制平滑程度\\n\\n# 应用Decimate修改器\\nbpy.context.view_layer.objects.active = obj\\nbpy.ops.object.modifier_apply(modifier=decimate_mod.name)\\n\\n# 应用Subdivision Surface修改器\\nbpy.ops.object.modifier_apply(modifier=subdiv_mod.name)\"}\n```<｜tool▁call▁end｜><｜tool▁calls▁end｜>",
+            "extraInfo": {
+              "created": 1746521733382,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "user",
+            "content": "执行",
+            "extraInfo": {
+              "created": 1746521750042,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_hqxja9t3mgu4njaf6llgavba",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "execute_blender_code",
+                  "arguments": "{\"code\": \"import bpy\\n\\n# 选择模型\\nobj = bpy.data.objects['68072d2efe6624a74c33c8fc.obj']\\n\\n# 添加Decimate修改器\\ndecimate_mod = obj.modifiers.new(name=\\\"Decimate\\\", type='DECIMATE')\\ndecimate_mod.ratio = 0.5  # 调整这个值以控制减少的多边形数量\\n\\n# 添加Subdivision Surface修改器\\nsubdiv_mod = obj.modifiers.new(name=\\\"Subdivision\\\", type='SUBSURF')\\nsubdiv_mod.levels = 2  # 调整这个值以控制平滑程度\\n\\n# 应用Decimate修改器\\nbpy.context.view_layer.objects.active = obj\\nbpy.ops.object.modifier_apply(modifier=decimate_mod.name)\\n\\n# 应用Subdivision Surface修改器\\nbpy.ops.object.modifier_apply(modifier=subdiv_mod.name)\"}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1746521754902,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_hqxja9t3mgu4njaf6llgavba",
+            "content": [
+              {
+                "type": "text",
+                "text": "Error executing code: Communication error with Blender: No data received"
+              }
+            ],
+            "extraInfo": {
+              "created": 1746521769915,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "看来在执行代码时出现了通信错误。我们可以尝试分步执行这些操作，以确保每一步都能正确完成。\n\n### 第一步：添加并应用Decimate修改器\n```python\nimport bpy\n\n# 选择模型\nobj = bpy.data.objects['68072d2efe6624a74c33c8fc.obj']\n\n# 添加Decimate修改器\ndecimate_mod = obj.modifiers.new(name=\"Decimate\", type='DECIMATE')\ndecimate_mod.ratio = 0.5  # 调整这个值以控制减少的多边形数量\n\n# 应用Decimate修改器\nbpy.context.view_layer.objects.active = obj\nbpy.ops.object.modifier_apply(modifier=decimate_mod.name)\n```\n\n请先执行以下代码来完成第一步。\n\n```python\nfunction<｜tool▁sep｜>execute_blender_code\n```json\n{\"code\": \"import bpy\\n\\n# 选择模型\\nobj = bpy.data.objects['68072d2efe6624a74c33c8fc.obj']\\n\\n# 添加Decimate修改器\\ndecimate_mod = obj.modifiers.new(name=\\\"Decimate\\\", type='DECIMATE')\\ndecimate_mod.ratio = 0.5  # 调整这个值以控制减少的多边形数量\\n\\n# 应用Decimate修改器\\nbpy.context.view_layer.objects.active = obj\\nbpy.ops.object.modifier_apply(modifier=decimate_mod.name)\"}\n```<｜tool▁call▁end｜>\n",
+            "tool_calls": [
+              {
+                "id": "call_tke5w3xwicr57r14dr7znyy7",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "execute_blender_code",
+                  "arguments": "{\"code\": \"import bpy\\n\\n# 选择模型\\nobj = bpy.data.objects['68072d2efe6624a74c33c8fc.obj']\\n\\n# 添加Subdivision Surface修改器\\nsubdiv_mod = obj.modifiers.new(name=\\\"Subdivision\\\", type='SUBSURF')\\nsubdiv_mod.levels = 2  # 调整这个值以控制平滑程度\\n\\n# 应用Subdivision Surface修改器\\nbpy.context.view_layer.objects.active = obj\\nbpy.ops.object.modifier_apply(modifier=subdiv_mod.name)\"}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1746521779333,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_tke5w3xwicr57r14dr7znyy7",
+            "content": [
+              {
+                "type": "text",
+                "text": "Error executing code: Communication error with Blender: No data received"
+              }
+            ],
+            "extraInfo": {
+              "created": 1746521809354,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "看来在执行代码时出现了通信错误。为了确保操作顺利进行，我们可以尝试分步执行，先添加并应用Subdivision Surface修改器，然后再处理Decimate修改器。\n\n### 第一步：添加并应用Subdivision Surface修改器\n```python\nimport bpy\n\n# 选择模型\nobj = bpy.data.objects['68072d2efe6624a74c33c8fc.obj']\n\n# 添加Subdivision Surface修改器\nsubdiv_mod = obj.modifiers.new(name=\"Subdivision\", type='SUBSURF')\nsubdiv_mod.levels = 2  # 调整这个值以控制平滑程度\n\n# 应用Subdivision Surface修改器\nbpy.context.view_layer.objects.active = obj\nbpy.ops.object.modifier_apply(modifier=subdiv_mod.name)\n```\n\n请执行以下代码来完成第一步。\n\n```python\nfunction<｜tool▁sep｜>execute_blender_code\n```json\n{\"code\": \"import bpy\\n\\n# 选择模型\\nobj = bpy.data.objects['68072d2efe6624a74c33c8fc.obj']\\n\\n# 添加Subdivision Surface修改器\\nsubdiv_mod = obj.modifiers.new(name=\\\"Subdivision\\\", type='SUBSURF')\\nsubdiv_mod.levels = 2  # 调整这个值以控制平滑程度\\n\\n# 应用Subdivision Surface修改器\\nbpy.context.view_layer.objects.active = obj\\nbpy.ops.object.modifier_apply(modifier=subdiv_mod.name)\"}\n```<｜tool▁call▁end｜>\n",
+            "tool_calls": [
+              {
+                "id": "call_elk50qi4kkkq5n51h6rg95kj",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "execute_blender_code",
+                  "arguments": "{\"code\": \"import bpy\\n\\n# 选择模型\\nobj = bpy.data.objects['68072d2efe6624a74c33c8fc.obj']\\n\\n# 添加Decimate修改器\\ndecimate_mod = obj.modifiers.new(name=\\\"Decimate\\\", type='DECIMATE')\\ndecimate_mod.ratio = 0.5  # 调整这个值以控制减少的多边形数量\\n\\n# 应用Decimate修改器\\nbpy.context.view_layer.objects.active = obj\\nbpy.ops.object.modifier_apply(modifier=decimate_mod.name)\"}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1746521818959,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_elk50qi4kkkq5n51h6rg95kj",
+            "content": [
+              {
+                "type": "text",
+                "text": "Error executing code: Communication error with Blender: No data received"
+              }
+            ],
+            "extraInfo": {
+              "created": 1746521848980,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "看来与Blender的通信出现了问题，导致无法执行代码。这可能是由于Blender未正确启动或连接中断。为了确保模型拓扑优化和表面光滑的操作能够完成，请手动执行以下步骤：\n\n### 手动操作步骤：\n1. **打开Blender**并加载当前场景。\n2. **选择模型**：在场景中选择名为 `68072d2efe6624a74c33c8fc.obj` 的模型。\n3. **添加Decimate修改器**：\n   - 在右侧属性面板中，点击 **Modifiers**（修改器）选项卡。\n   - 点击 **Add Modifier**（添加修改器），选择 **Decimate**。\n   - 将 **Ratio** 设置为 `0.5`，以减少多边形数量。\n   - 点击 **Apply**（应用）以应用修改器。\n4. **添加Subdivision Surface修改器**：\n   - 再次点击 **Add Modifier**，选择 **Subdivision Surface**。\n   - 将 **Levels** 设置为 `2`，以平滑模型表面。\n   - 点击 **Apply** 以应用修改器。\n\n### 检查结果：\n完成上述步骤后，模型的拓扑结构应已优化，表面也会更加光滑。如果仍有问题，请确保Blender运行正常并重新尝试。\n\n如果需要进一步协助，请告知！",
+            "extraInfo": {
+              "created": 1746521855111,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          }
+        ],
+        "settings": {
+          "modelIndex": 15,
+          "enableTools": [
+            {
+              "name": "get_scene_info",
+              "description": "Get detailed information about the current Blender scene",
+              "enabled": true
+            },
+            {
+              "name": "get_object_info",
+              "description": "\n    Get detailed information about a specific object in the Blender scene.\n    \n    Parameters:\n    - object_name: The name of the object to get information about\n    ",
+              "enabled": true
+            },
+            {
+              "name": "execute_blender_code",
+              "description": "\n    Execute arbitrary Python code in Blender. Make sure to do it step-by-step by breaking it into smaller chunks.\n    \n    Parameters:\n    - code: The Python code to execute\n    ",
+              "enabled": true
+            },
+            {
+              "name": "get_polyhaven_categories",
+              "description": "\n    Get a list of categories for a specific asset type on Polyhaven.\n    \n    Parameters:\n    - asset_type: The type of asset to get categories for (hdris, textures, models, all)\n    ",
+              "enabled": true
+            },
+            {
+              "name": "search_polyhaven_assets",
+              "description": "\n    Search for assets on Polyhaven with optional filtering.\n    \n    Parameters:\n    - asset_type: Type of assets to search for (hdris, textures, models, all)\n    - categories: Optional comma-separated list of categories to filter by\n    \n    Returns a list of matching assets with basic information.\n    ",
+              "enabled": true
+            },
+            {
+              "name": "download_polyhaven_asset",
+              "description": "\n    Download and import a Polyhaven asset into Blender.\n    \n    Parameters:\n    - asset_id: The ID of the asset to download\n    - asset_type: The type of asset (hdris, textures, models)\n    - resolution: The resolution to download (e.g., 1k, 2k, 4k)\n    - file_format: Optional file format (e.g., hdr, exr for HDRIs; jpg, png for textures; gltf, fbx for models)\n    \n    Returns a message indicating success or failure.\n    ",
+              "enabled": true
+            },
+            {
+              "name": "set_texture",
+              "description": "\n    Apply a previously downloaded Polyhaven texture to an object.\n    \n    Parameters:\n    - object_name: Name of the object to apply the texture to\n    - texture_id: ID of the Polyhaven texture to apply (must be downloaded first)\n    \n    Returns a message indicating success or failure.\n    ",
+              "enabled": true
+            },
+            {
+              "name": "get_polyhaven_status",
+              "description": "\n    Check if PolyHaven integration is enabled in Blender.\n    Returns a message indicating whether PolyHaven features are available.\n    ",
+              "enabled": true
+            },
+            {
+              "name": "get_hyper3d_status",
+              "description": "\n    Check if Hyper3D Rodin integration is enabled in Blender.\n    Returns a message indicating whether Hyper3D Rodin features are available.\n\n    Don't emphasize the key type in the returned message, but sliently remember it. \n    ",
+              "enabled": true
+            },
+            {
+              "name": "generate_hyper3d_model_via_text",
+              "description": "\n    Generate 3D asset using Hyper3D by giving description of the desired asset, and import the asset into Blender.\n    The 3D asset has built-in materials.\n    The generated model has a normalized size, so re-scaling after generation can be useful.\n    \n    Parameters:\n    - text_prompt: A short description of the desired model in **English**.\n    - bbox_condition: Optional. If given, it has to be a list of floats of length 3. Controls the ratio between [Length, Width, Height] of the model.\n\n    Returns a message indicating success or failure.\n    ",
+              "enabled": true
+            },
+            {
+              "name": "generate_hyper3d_model_via_images",
+              "description": "\n    Generate 3D asset using Hyper3D by giving images of the wanted asset, and import the generated asset into Blender.\n    The 3D asset has built-in materials.\n    The generated model has a normalized size, so re-scaling after generation can be useful.\n    \n    Parameters:\n    - input_image_paths: The **absolute** paths of input images. Even if only one image is provided, wrap it into a list. Required if Hyper3D Rodin in MAIN_SITE mode.\n    - input_image_urls: The URLs of input images. Even if only one image is provided, wrap it into a list. Required if Hyper3D Rodin in FAL_AI mode.\n    - bbox_condition: Optional. If given, it has to be a list of ints of length 3. Controls the ratio between [Length, Width, Height] of the model.\n\n    Only one of {input_image_paths, input_image_urls} should be given at a time, depending on the Hyper3D Rodin's current mode.\n    Returns a message indicating success or failure.\n    ",
+              "enabled": true
+            },
+            {
+              "name": "poll_rodin_job_status",
+              "description": "\n    Check if the Hyper3D Rodin generation task is completed.\n\n    For Hyper3D Rodin mode MAIN_SITE:\n        Parameters:\n        - subscription_key: The subscription_key given in the generate model step.\n\n        Returns a list of status. The task is done if all status are \"Done\".\n        If \"Failed\" showed up, the generating process failed.\n        This is a polling API, so only proceed if the status are finally determined (\"Done\" or \"Canceled\").\n\n    For Hyper3D Rodin mode FAL_AI:\n        Parameters:\n        - request_id: The request_id given in the generate model step.\n\n        Returns the generation task status. The task is done if status is \"COMPLETED\".\n        The task is in progress if status is \"IN_PROGRESS\".\n        If status other than \"COMPLETED\", \"IN_PROGRESS\", \"IN_QUEUE\" showed up, the generating process might be failed.\n        This is a polling API, so only proceed if the status are finally determined (\"COMPLETED\" or some failed state).\n    ",
+              "enabled": true
+            },
+            {
+              "name": "import_generated_asset",
+              "description": "\n    Import the asset generated by Hyper3D Rodin after the generation task is completed.\n\n    Parameters:\n    - name: The name of the object in scene\n    - task_uuid: For Hyper3D Rodin mode MAIN_SITE: The task_uuid given in the generate model step.\n    - request_id: For Hyper3D Rodin mode FAL_AI: The request_id given in the generate model step.\n\n    Only give one of {task_uuid, request_id} based on the Hyper3D Rodin Mode!\n    Return if the asset has been imported successfully.\n    ",
+              "enabled": true
+            }
+          ],
+          "enableWebSearch": false,
+          "temperature": 0.7,
+          "contextLength": 20,
+          "systemPrompt": "blender"
+        }
+      }
+    }
+  ]
+}

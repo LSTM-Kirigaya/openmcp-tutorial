@@ -1,0 +1,12 @@
+{
+  "currentIndex": 0,
+  "tabs": [
+    {
+      "name": "Blank test 1",
+      "icon": "icon-blank",
+      "type": "blank",
+      "componentIndex": -1,
+      "storage": {}
+    }
+  ]
+}

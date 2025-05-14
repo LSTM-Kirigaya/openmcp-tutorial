@@ -1,0 +1,103 @@
+{
+  "currentIndex": 1,
+  "tabs": [
+    {
+      "name": "工具",
+      "icon": "icon-tool",
+      "type": "blank",
+      "componentIndex": 2,
+      "storage": {
+        "formData": {
+          "city_code": 0
+        },
+        "currentToolName": "get weather by city code",
+        "lastToolCallResponse": {
+          "content": [
+            {
+              "type": "text",
+              "text": "CityWeather(city_name_en='hangzhou', city_name_cn='杭州', city_code='101210101', temp='18.1', wd='', ws='', sd='56%', aqi='34', weather='晴')"
+            }
+          ],
+          "isError": false
+        }
+      }
+    },
+    {
+      "name": "交互测试",
+      "icon": "icon-robot",
+      "type": "blank",
+      "componentIndex": 3,
+      "storage": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "请问杭州今天的天气是多少",
+            "extraInfo": {
+              "created": 1746297151124,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_bsj65pr7pi0lc8hped0a92ll",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "get weather by city code",
+                  "arguments": "{\"city_code\":101210101}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1746297151851,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_bsj65pr7pi0lc8hped0a92ll",
+            "content": [
+              {
+                "type": "text",
+                "text": "CityWeather(city_name_en='hangzhou', city_name_cn='杭州', city_code='101210101', temp='18', wd='', ws='', sd='54%', aqi='34', weather='晴')"
+              }
+            ],
+            "extraInfo": {
+              "created": 1746297151884,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "杭州今天的天气是晴，气温为18摄氏度，湿度为54%，空气质量指数（AQI）为34。",
+            "extraInfo": {
+              "created": 1746297152576,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          }
+        ],
+        "settings": {
+          "modelIndex": 15,
+          "enableTools": [
+            {
+              "name": "get weather by city code",
+              "description": "根据城市天气预报的城市编码 (int)，获取指定城市的天气信息",
+              "enabled": true
+            }
+          ],
+          "enableWebSearch": false,
+          "temperature": 0.7,
+          "contextLength": 10,
+          "systemPrompt": ""
+        }
+      }
+    }
+  ]
+}
