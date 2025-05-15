@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "type": "sse",
+      "name": "只读 Neo4j 服务器",
+      "version": "0.0.1",
+      "url": "http://localhost:8083/sse",
+      "oauth": "",
+      "filePath": "sse-1747296543883"
+    },
+    {
+      "type": "sse",
+      "name": "sse-1747296543883",
+      "version": "1.0",
+      "url": "http://localhost:8083",
+      "oauth": ""
+    }
+  ]
+}
