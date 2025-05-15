@@ -161,15 +161,19 @@ async function ensureBrowser({ launchOptions, allowDangerous }: any) {
 	previousLaunchOptions = launchOptions;
 
 	if (!browser) {
-		const npx_args = { headless: false }
-		const docker_args = { headless: true, args: ["--no-sandbox", "--single-process", "--no-zygote"] }
+		const npx_args = {
+			headless: true,
+			args: [
+                '--proxy-server=http://127.0.0.1:7890'
+            ]
+		}
+		// const docker_args = { headless: true, args: ["--no-sandbox", "--single-process", "--no-zygote"] }
 		browser = await puppeteer.launch(deepMerge(
-			process.env.DOCKER_CONTAINER ? docker_args : npx_args,
+			npx_args,
 			mergedConfig
 		));
 		const pages = await browser.pages();
 		page = pages[0];
-
 		page.on("console", (msg) => {
 			const logEntry = `[${msg.type()}] ${msg.text()}`;
 			consoleLogs.push(logEntry);
@@ -221,7 +225,9 @@ export async function handleToolCall(name: string, args: any): Promise<CallToolR
 
 	switch (name) {
 		case "k_navigate":
-			await page.goto(args.url);
+			await page.goto(args.url, {
+				waitUntil: 'networkidle2',
+			});
 			return {
 				content: [{
 					type: "text",
