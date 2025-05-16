@@ -314,6 +314,103 @@
           ]
         }
       }
+    },
+    {
+      "name": "交互测试",
+      "icon": "icon-robot",
+      "type": "blank",
+      "componentIndex": 3,
+      "storage": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "展示所有的节点类型",
+            "extraInfo": {
+              "created": 1747338594891,
+              "state": "success",
+              "serverName": "deepseek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_0_22e2cd5d-512a-473c-a3bf-2defc9db154f",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (n) RETURN DISTINCT labels(n) AS nodeTypes\"}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1747338599861,
+              "state": "success",
+              "serverName": "deepseek"
+            }
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_0_22e2cd5d-512a-473c-a3bf-2defc9db154f",
+            "content": [
+              {
+                "type": "error",
+                "text": "McpError: MCP error -32603: Neo4jError: Neo.ClientError.Security.Unauthorized (The client is unauthorized due to authentication failure.)"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747338599969,
+              "state": "tool call failed",
+              "serverName": "deepseek",
+              "usage": {
+                "prompt_tokens": 135,
+                "completion_tokens": 38,
+                "total_tokens": 173,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                },
+                "prompt_cache_hit_tokens": 0,
+                "prompt_cache_miss_tokens": 135
+              }
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "目前无法获取节点类型信息，因为访问数据库时出现了身份验证失败的错误。如果您有权限或需要进一步帮助，请提供更多信息或调整访问权限。",
+            "extraInfo": {
+              "created": 1747338606001,
+              "state": "success",
+              "serverName": "deepseek",
+              "usage": {
+                "prompt_tokens": 220,
+                "completion_tokens": 34,
+                "total_tokens": 254,
+                "prompt_tokens_details": {
+                  "cached_tokens": 128
+                },
+                "prompt_cache_hit_tokens": 128,
+                "prompt_cache_miss_tokens": 92
+              }
+            }
+          }
+        ],
+        "settings": {
+          "modelIndex": 0,
+          "enableTools": [
+            {
+              "name": "executeReadOnlyCypherQuery",
+              "description": "执行只读的 Cypher 查询",
+              "enabled": true
+            }
+          ],
+          "enableWebSearch": false,
+          "temperature": 0.7,
+          "contextLength": 20,
+          "systemPrompt": ""
+        }
+      }
     }
   ]
 }

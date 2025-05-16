@@ -10,6 +10,7 @@ import (
 
 var (
 	neo4jPath string = "./neo4j.json"
+	addr string = "localhost:8083"
 )
 
 func main() {
@@ -57,5 +58,6 @@ func main() {
 		return mcp.NewToolResultText(fmt.Sprintf("%v", result)), nil
 	})
 
-	srv.Start("localhost:8083")
+	fmt.Printf("Server started at http://%s/sse\n", addr)
+	srv.Start(addr)
 }
