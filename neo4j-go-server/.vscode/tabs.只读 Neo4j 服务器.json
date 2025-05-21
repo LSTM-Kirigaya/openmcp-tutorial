@@ -1,5 +1,5 @@
 {
-  "currentIndex": 0,
+  "currentIndex": 2,
   "tabs": [
     {
       "name": "交互测试",
@@ -277,6 +277,799 @@
               "state": "success",
               "serverName": "Huoshan DeepSeek"
             }
+          },
+          {
+            "role": "user",
+            "content": "能不能更进一步，返回最新的 10 条评论和它们所在文章的 seq ，评论和 文章的关系是 Publish",
+            "extraInfo": {
+              "created": 1747480143996,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_cy0v9rk8txpw7i9eu2qsuiog",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (c:BlogComment)-[:Publish]->(b:Blog) RETURN c.text AS comment, c.createTime AS create_time, b.seq AS blog_seq ORDER BY create_time DESC LIMIT 10\"}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480145506,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 0,
+            "tool_call_id": "call_cy0v9rk8txpw7i9eu2qsuiog",
+            "content": [
+              {
+                "type": "text",
+                "text": "[]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480145613,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "看起来没有返回任何数据，可能是因为评论和文章之间的关系不是 `Publish`，或者查询条件不正确。我将尝试另一种方法，通过直接匹配评论和文章的关系来获取数据。\n\n### 尝试新的查询\n我将返回最新的 10 条评论以及它们关联的文章的 `seq`。\n\n### 执行查询\n",
+            "tool_calls": [
+              {
+                "id": "call_gkcxpfkv448vbgchswnxmc8w",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (c:BlogComment)-[r]->(b:Blog) RETURN c.text AS comment, c.createTime AS create_time, b.seq AS blog_seq ORDER BY create_time DESC LIMIT 10\"}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480148416,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 0,
+            "tool_call_id": "call_gkcxpfkv448vbgchswnxmc8w",
+            "content": [
+              {
+                "type": "text",
+                "text": "[]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480148518,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "看来数据库中目前没有符合条件的数据（即评论与文章通过 `Publish` 关系关联）。如果需要进一步调查或调整查询条件，请告诉我！",
+            "extraInfo": {
+              "created": 1747480149642,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "user",
+            "content": "列出所有关系类型",
+            "extraInfo": {
+              "created": 1747480222906,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_f9klp0x95p10j80tv8aux9lb",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"CALL db.relationshipTypes()\"}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480223844,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 0,
+            "tool_call_id": "call_f9klp0x95p10j80tv8aux9lb",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[relationshipType:belongTo] map[relationshipType:KNOWS] map[relationshipType:Publish] map[relationshipType:Contain] map[relationshipType:At] map[relationshipType:JOIN] map[relationshipType:LINK] map[relationshipType:LOCATE_AT] map[relationshipType:HAPPEN_IN]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480223917,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "以下是数据库中所有关系类型的列表：\n\n1. **belongTo**\n2. **KNOWS**\n3. **Publish**\n4. **Contain**\n5. **At**\n6. **JOIN**\n7. **LINK**\n8. **LOCATE_AT**\n9. **HAPPEN_IN**\n\n如果需要进一步分析或查询这些关系类型，请告诉我！",
+            "extraInfo": {
+              "created": 1747480225680,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "user",
+            "content": "前5个，分别列出三个案例",
+            "extraInfo": {
+              "created": 1747480279008,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "好的，我将为前 5 个关系类型分别列出 3 个案例。以下是查询结果：\n\n### 1. **belongTo**\n```json\n{\"cypher\":\"MATCH (a)-[:belongTo]->(b) RETURN properties(a) AS from, properties(b) AS to LIMIT 3\"}\n```\n\n### 2. **KNOWS**\n```json\n{\"cypher\":\"MATCH (a)-[:KNOWS]->(b) RETURN properties(a) AS from, properties(b) AS to LIMIT 3\"}\n```\n\n### 3. **Publish**\n```json\n{\"cypher\":\"MATCH (a)-[:Publish]->(b) RETURN properties(a) AS from, properties(b) AS to LIMIT 3\"}\n```\n\n### 4. **Contain**\n```json\n{\"cypher\":\"MATCH (a)-[:Contain]->(b) RETURN properties(a) AS from, properties(b) AS to LIMIT 3\"}\n```\n\n### 5. **At**\n```json\n{\"cypher\":\"MATCH (a)-[:At]->(b) RETURN properties(a) AS from, properties(b) AS to LIMIT 3\"}\n```\n\n接下来我将执行这些查询并返回结果。",
+            "tool_calls": [
+              {
+                "id": "call_s7j6xxkbae1i11ttv2q56asz",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (a)-[:belongTo]->(b) RETURN properties(a) AS from, properties(b) AS to LIMIT 3\"}"
+                }
+              },
+              {
+                "id": "call_973b9myauas9wlvzx1069t0w",
+                "index": 1,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (a)-[:KNOWS]->(b) RETURN properties(a) AS from, properties(b) AS to LIMIT 3\"}"
+                }
+              },
+              {
+                "id": "call_u626wcb74ccwpz9lc0wxg94c",
+                "index": 2,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (a)-[:Publish]->(b) RETURN properties(a) AS from, properties(b) AS to LIMIT 3\"}"
+                }
+              },
+              {
+                "id": "call_k92qh8bjo7c4i3w0h8ipaxyx",
+                "index": 3,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (a)-[:Contain]->(b) RETURN properties(a) AS from, properties(b) AS to LIMIT 3\"}"
+                }
+              },
+              {
+                "id": "call_jsm57rdcp9xa5wa1c3lnw1mp",
+                "index": 4,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (a)-[:At]->(b) RETURN properties(a) AS from, properties(b) AS to LIMIT 3\"}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480287671,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 0,
+            "tool_call_id": "call_s7j6xxkbae1i11ttv2q56asz",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[from:map[adjustTime:2022年06月13日 17:30 imgUrl:https://images.saasworthy.com/oracleanalyticscloud_11516_logo_1606733044_fqrte.png name:关系数据库除操作和Oracle实现 seq:18 tags:[database sql 计算机基础]] to:map[name:计算机基础]] map[from:map[adjustTime:2022年06月13日 17:30 imgUrl:https://images.saasworthy.com/oracleanalyticscloud_11516_logo_1606733044_fqrte.png name:关系数据库除操作和Oracle实现 seq:18 tags:[database sql 计算机基础]] to:map[name:sql]] map[from:map[adjustTime:2022年06月13日 17:30 imgUrl:https://images.saasworthy.com/oracleanalyticscloud_11516_logo_1606733044_fqrte.png name:关系数据库除操作和Oracle实现 seq:18 tags:[database sql 计算机基础]] to:map[name:database]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480287764,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 1,
+            "tool_call_id": "call_973b9myauas9wlvzx1069t0w",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[from:map[age:33 desc:XXXXXXXXXXXXXXXXXXXXXXX name:Alice] to:map[age:24 name:Can]] map[from:map[age:33 desc:XXXXXXXXXXXXXXXXXXXXXXX name:Alice] to:map[age:44 name:Bob]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480287853,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 2,
+            "tool_call_id": "call_u626wcb74ccwpz9lc0wxg94c",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[from:map[hashedPassword:$2a$10$PrMBwgKgkACjmtGGzwr58OE/vOK/LYhRwL7cbCT5mr5iXGv3Lvqn6 imgUrl:https://pic1.zhimg.com/v2-b4251de7d2499e942c7ebf447a90d2eb_xll.jpg?source=32738c0c name:kirigaya] to:map[createTime:1711205471 text:这样访问 http://<域名>:8003 就能访问了：\n\n<img src=\"https://picx.zhimg.com/80/v2-cae76cde77ec6f812ec10d775a08048e_1440w.jpeg\"/>]] map[from:map[hashedPassword:$2a$10$PrMBwgKgkACjmtGGzwr58OE/vOK/LYhRwL7cbCT5mr5iXGv3Lvqn6 imgUrl:https://pic1.zhimg.com/v2-b4251de7d2499e942c7ebf447a90d2eb_xll.jpg?source=32738c0c name:kirigaya] to:map[createTime:1711205335 text:是的，忘了写了，通过如下的方法可以开启 frp 的管理面板：\n```bash\nwebServer.addr = \"0.0.0.0\"\nwebServer.port = 8003\nwebServer.user = \"xxx\"\nwebServer.password = \"xxx\"\n```]] map[from:map[hashedPassword:$2a$10$PrMBwgKgkACjmtGGzwr58OE/vOK/LYhRwL7cbCT5mr5iXGv3Lvqn6 imgUrl:https://pic1.zhimg.com/v2-b4251de7d2499e942c7ebf447a90d2eb_xll.jpg?source=32738c0c name:kirigaya] to:map[createTime:1651507200 imgUrl:https://i0.hdslb.com/bfs/article/be2a56efe09e1049bb9c0f4aef2f524dffc4c3d1.jpg publisherName:kirigaya title:天空之城 吉他指弹]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480287942,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 3,
+            "tool_call_id": "call_k92qh8bjo7c4i3w0h8ipaxyx",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[from:map[adjustTime:2023年03月08日 01:56 imgUrl:https://picx.zhimg.com/80/v2-e43df8be54990caadc334b7fffdd3af3_1440w.png?source=d16d100b name:使用new bing帮助你更好地调教novelai seq:45 tags:[novelai new bing]] to:map[createTime:1678443320 text:reply to you]] map[from:map[adjustTime:2023年03月08日 01:56 imgUrl:https://picx.zhimg.com/80/v2-e43df8be54990caadc334b7fffdd3af3_1440w.png?source=d16d100b name:使用new bing帮助你更好地调教novelai seq:45 tags:[novelai new bing]] to:map[createTime:1678436797 text:hello]] map[from:map[adjustTime:2023年03月08日 01:56 imgUrl:https://picx.zhimg.com/80/v2-e43df8be54990caadc334b7fffdd3af3_1440w.png?source=d16d100b name:使用new bing帮助你更好地调教novelai seq:45 tags:[novelai new bing]] to:map[createTime:1678436729 text:下次能不能不要把XSS注入name中呀，这样木大大 ![](https: //i0.hdslb.com/bfs/article/381410c682361ef14a3f448579b43c5e1dd92e15.jpg@750w_750h_progressive.webp)]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480288034,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 4,
+            "tool_call_id": "call_jsm57rdcp9xa5wa1c3lnw1mp",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[from:map[createTime:1678424517 text:hello] to:map[hashedPassword:$2a$10$PrMBwgKgkACjmtGGzwr58OE/vOK/LYhRwL7cbCT5mr5iXGv3Lvqn6 imgUrl:https://pic1.zhimg.com/v2-b4251de7d2499e942c7ebf447a90d2eb_xll.jpg?source=32738c0c name:kirigaya]] map[from:map[createTime:1678436729 text:下次能不能不要把XSS注入name中呀，这样木大大 ![](https: //i0.hdslb.com/bfs/article/381410c682361ef14a3f448579b43c5e1dd92e15.jpg@750w_750h_progressive.webp)] to:map[hashedPassword:$2a$10$zaSc.visokLZJ1wsU6BffOXZPqjBFxUgiRHZxvMPdAVTxPEdlcSCu imgUrl:https://tse4-mm.cn.bing.net/th/id/OIP-C.i53Qt3ZSSs9pmV8MoBvGewHaJ4?pid=ImgDet&rs=1 name:&lt;script&gt;alert(&#34;hello&#34;)&lt;/script&gt;]] map[from:map[createTime:1678443320 text:reply to you] to:map[hashedPassword:$2a$10$Y9F2uCsQWnwxJlbsNrjzveXgQzPG8Vj8Gbuslt7xmzxqga.9QGLT. imgUrl:https://pic1.zhimg.com/80/v2-c22e2bac5ed568b497cba1be8a59468d_1440w.png name:peacesheep]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480288119,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "以下是根据您的要求列出的前5个关系类型的案例：\n\n### 1. **belongTo**\n   - **案例1**:\n     - **From**: 关系数据库除操作和Oracle实现 (seq: 18)\n     - **To**: 计算机基础\n   - **案例2**:\n     - **From**: 关系数据库除操作和Oracle实现 (seq: 18)\n     - **To**: sql\n   - **案例3**:\n     - **From**: 关系数据库除操作和Oracle实现 (seq: 18)\n     - **To**: database\n\n### 2. **KNOWS**\n   - **案例1**:\n     - **From**: Alice (age: 33)\n     - **To**: Can (age: 24)\n   - **案例2**:\n     - **From**: Alice (age: 33)\n     - **To**: Bob (age: 44)\n\n### 3. **Publish**\n   - **案例1**:\n     - **From**: kirigaya\n     - **To**: 这样访问 http://<域名>:8003 就能访问了：\n   - **案例2**:\n     - **From**: kirigaya\n     - **To**: 是的，忘了写了，通过如下的方法可以开启 frp 的管理面板：\n   - **案例3**:\n     - **From**: kirigaya\n     - **To**: 天空之城 吉他指弹\n\n### 4. **Contain**\n   - **案例1**:\n     - **From**: 使用new bing帮助你更好地调教novelai (seq: 45)\n     - **To**: reply to you\n   - **案例2**:\n     - **From**: 使用new bing帮助你更好地调教novelai (seq: 45)\n     - **To**: hello\n   - **案例3**:\n     - **From**: 使用new bing帮助你更好地调教novelai (seq: 45)\n     - **To**: 下次能不能不要把XSS注入name中呀，这样木大大\n\n### 5. **At**\n   - **案例1**:\n     - **From**: hello\n     - **To**: kirigaya\n   - **案例2**:\n     - **From**: 下次能不能不要把XSS注入name中呀，这样木大大\n     - **To**: <script>alert(\"hello\")</script>\n   - **案例3**:\n     - **From**: reply to you\n     - **To**: peacesheep\n\n如果需要进一步分析或查询这些关系类型，请告诉我！",
+            "extraInfo": {
+              "created": 1747480297440,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "user",
+            "content": "你可以看到，Contain 是可以关联文章和评论的，帮我罗列最新的10个评论和它们所在的文章的seq",
+            "extraInfo": {
+              "created": 1747480902955,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_v1mmm0furejqe4busg2b5n4q",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (c:BlogComment)-[:Contain]->(b:Blog) RETURN c.text AS comment, c.createTime AS create_time, b.seq AS blog_seq ORDER BY create_time DESC LIMIT 10\"}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480904702,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 0,
+            "tool_call_id": "call_v1mmm0furejqe4busg2b5n4q",
+            "content": [
+              {
+                "type": "text",
+                "text": "[]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480904805,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "看来数据库中目前没有符合条件的数据（即评论与文章通过 `Contain` 关系关联）。如果需要进一步调查或调整查询条件，请告诉我！",
+            "extraInfo": {
+              "created": 1747480906000,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "user",
+            "content": "是文章包含评论，你的方向错了",
+            "extraInfo": {
+              "created": 1747480934148,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "明白了！我们将调整查询方向，查找文章包含评论的关系。以下是新的查询：\n\n### 查询：\n```cypher\nMATCH (b:Blog)-[:Contain]->(c:BlogComment) \nRETURN c.text AS comment, c.createTime AS create_time, b.seq AS blog_seq \nORDER BY create_time DESC \nLIMIT 10\n```\n\n### 执行查询：\n",
+            "tool_calls": [
+              {
+                "id": "call_dkdketl0lx3ssmz1q5wt1ztk",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (b:Blog)-[:Contain]->(c:BlogComment) RETURN c.text AS comment, c.createTime AS create_time, b.seq AS blog_seq ORDER BY create_time DESC LIMIT 10\"}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480937140,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 0,
+            "tool_call_id": "call_dkdketl0lx3ssmz1q5wt1ztk",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[blog_seq:312 comment:主要是那个图片在我的网站的 markdown 渲染器中都可以正常请求渲染，所以我当时感觉这玩意儿的原因是什么全局的东西没有配置好。 create_time:1746634410] map[blog_seq:312 comment:当年我遇到这个问题的时候是给每个 img 标签上都加上了 `referrerPolicy=\"no-referrer\"`，也没怎么细想要不要全局加上就算了😂 create_time:1745734182] map[blog_seq:101 comment:如果没有sudo权限，采用文章末尾的方式，该如何换端口呢？ create_time:1743046904] map[blog_seq:101 comment:wget -c https://kirigaya.cn/files/clash-for-linux.zip 已经失效很久了，可以换成\nwget -c https://kirigaya.cn/files/linux_tools/clash-for-linux.zip create_time:1742898831] map[blog_seq:154 comment:从这种角度考虑，可能迪利克雷分布不是必要的，可以考虑普通的交叉熵，同时加上这里的坍塌设定 create_time:1742564492] map[blog_seq:154 comment:这个方法评价OOD的本质似乎是，用值的相对大小做分类，用值的绝对大小表示置信度。 create_time:1742564458] map[blog_seq:154 comment:发现这个方法似乎受随机种子影响非常大？有时候第一个epoch的测试精准度能到90%，有时只有40%多 create_time:1742564174] map[blog_seq:22 comment:正好在学这方面知识，太强了佬 create_time:1740647524] map[blog_seq:101 comment:curl: (35) Recv failure: Connection reset by peer 是什么情况 create_time:1740572403] map[blog_seq:101 comment:https://github.com/Elegycloud/clash-for-linux-backup 现在可以用 create_time:1740571054]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747480937248,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "以下是最新的10个评论及其所在文章的 `seq`：\n\n| **评论**                                                                                     | **文章 seq** | **创建时间**       |\n|--------------------------------------------------------------------------------------------|-------------|------------------|\n| 主要是那个图片在我的网站的 markdown 渲染器中都可以正常请求渲染，所以我当时感觉这玩意儿的原因是什么全局的东西没有配置好。 | 312         | 2024-05-07 12:13:30 |\n| 当年我遇到这个问题的时候是给每个 img 标签上都加上了 `referrerPolicy=\\\"no-referrer\\\"`，也没怎么细想要不要全局加上就算了😂 | 312         | 2024-04-26 08:09:42 |\n| 如果没有sudo权限，采用文章末尾的方式，该如何换端口呢？                                             | 101         | 2024-03-26 08:41:44 |\n| wget -c https://kirigaya.cn/files/clash-for-linux.zip 已经失效很久了，可以换成\\nwget -c https://kirigaya.cn/files/linux_tools/clash-for-linux.zip | 101         | 2024-03-24 08:33:51 |\n| 从这种角度考虑，可能迪利克雷分布不是必要的，可以考虑普通的交叉熵，同时加上这里的坍塌设定                                   | 154         | 2024-03-20 08:41:32 |\n| 这个方法评价OOD的本质似乎是，用值的相对大小做分类，用值的绝对大小表示置信度。                                         | 154         | 2024-03-20 08:40:58 |\n| 发现这个方法似乎受随机种子影响非常大？有时候第一个epoch的测试精准度能到90%，有时只有40%多                                 | 154         | 2024-03-20 08:36:14 |\n| 正好在学这方面知识，太强了佬                                                                   | 22          | 2024-02-26 08:12:04 |\n| curl: (35) Recv failure: Connection reset by peer 是什么情况                                      | 101         | 2024-02-25 08:20:03 |\n| https://github.com/Elegycloud/clash-for-linux-backup 现在可以用                                    | 101         | 2024-02-25 08:17:34 |\n\n如果需要进一步分析或查询，请告诉我！",
+            "extraInfo": {
+              "created": 1747480945968,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "user",
+            "content": "一步一步地来完成：\n通过罗列节点的方式获得评论和用户的节点类型的字符串",
+            "extraInfo": {
+              "created": 1747489382892,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "\n\n",
+            "tool_calls": [
+              {
+                "id": "call_701o6jg15m9cqd9wys21gnsz",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (n) WHERE n:BlogComment OR n:User RETURN DISTINCT labels(n) AS node_labels\"}"
+                }
+              },
+              {
+                "id": "call_3heli4skt8ab2tgjzvh2mjbh",
+                "index": 1,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (n) WHERE n:BlogComment OR n:User RETURN DISTINCT labels(n) AS node_labels\"}"
+                }
+              },
+              {
+                "id": "call_b3veu030v146hbsynzudqhrd",
+                "index": 2,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (n) WHERE n:BlogComment OR n:User RETURN DISTINCT labels(n) AS node_labels\"}"
+                }
+              },
+              {
+                "id": "call_vam0jk4q92axb2vlfz5opomm",
+                "index": 3,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (n) WHERE n:BlogComment OR n:User RETURN DISTINCT labels(n) AS node_labels\"}"
+                }
+              },
+              {
+                "id": "call_igi2nr0v44n2cy36cwehkjp8",
+                "index": 4,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (n) WHERE n:BlogComment OR n:User RETURN DISTINCT labels(n) AS node_labels\"}"
+                }
+              },
+              {
+                "id": "call_kf3bg9lp3uhirhcgqg5y6e1y",
+                "index": 5,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (n) WHERE n:BlogComment OR n:User RETURN DISTINCT labels(n) AS node_labels\"}"
+                }
+              },
+              {
+                "id": "call_mte43wwxkajdtwmyna6zde87",
+                "index": 6,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (n) WHERE n:BlogComment OR n:User RETURN DISTINCT labels(n) AS node_labels\"}"
+                }
+              },
+              {
+                "id": "call_o125gwmjxf9bvsruowyq88bs",
+                "index": 7,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (n) WHERE n:BlogComment OR n:User RETURN DISTINCT labels(n) AS node_labels\"}"
+                }
+              },
+              {
+                "id": "call_d332lh3kukef8skzxsjjhqe9",
+                "index": 8,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (n) WHERE n:BlogComment OR n:User RETURN DISTINCT labels(n) AS node_labels\"}"
+                }
+              },
+              {
+                "id": "call_n7t6z937jlmdzqtpzf1bo6pi",
+                "index": 9,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (n) WHERE n:BlogComment OR n:User RETURN DISTINCT labels(n) AS node_labels\"}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1747489391046,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 0,
+            "tool_call_id": "call_701o6jg15m9cqd9wys21gnsz",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[node_labels:[BlogComment]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747489391213,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 1,
+            "tool_call_id": "call_3heli4skt8ab2tgjzvh2mjbh",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[node_labels:[BlogComment]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747489391276,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 2,
+            "tool_call_id": "call_b3veu030v146hbsynzudqhrd",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[node_labels:[BlogComment]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747489391340,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 3,
+            "tool_call_id": "call_vam0jk4q92axb2vlfz5opomm",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[node_labels:[BlogComment]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747489391403,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 4,
+            "tool_call_id": "call_igi2nr0v44n2cy36cwehkjp8",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[node_labels:[BlogComment]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747489391466,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 5,
+            "tool_call_id": "call_kf3bg9lp3uhirhcgqg5y6e1y",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[node_labels:[BlogComment]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747489391528,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 6,
+            "tool_call_id": "call_mte43wwxkajdtwmyna6zde87",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[node_labels:[BlogComment]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747489391592,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 7,
+            "tool_call_id": "call_o125gwmjxf9bvsruowyq88bs",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[node_labels:[BlogComment]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747489391656,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 8,
+            "tool_call_id": "call_d332lh3kukef8skzxsjjhqe9",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[node_labels:[BlogComment]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747489391719,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 9,
+            "tool_call_id": "call_n7t6z937jlmdzqtpzf1bo6pi",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[node_labels:[BlogComment]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747489391784,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "根据查询结果，数据库中只存在一种节点类型与评论和用户相关，即 `BlogComment`。以下是节点类型的字符串：\n\n- **BlogComment**\n\n如果需要进一步分析或查询其他节点类型，请告诉我！",
+            "extraInfo": {
+              "created": 1747489393048,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "user",
+            "content": "用户的节点类型呢",
+            "extraInfo": {
+              "created": 1747489404511,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "根据之前的查询结果，数据库中只返回了 `BlogComment` 节点类型，而没有返回 `User` 节点类型。这可能意味着数据库中目前没有 `User` 节点，或者查询条件需要调整。\n\n让我们重新查询一次，确保没有遗漏：\n\n### 查询步骤：\n1. **查询所有节点类型**：\n   - 通过 `MATCH (n) RETURN DISTINCT labels(n)` 查询所有节点类型。\n\n### 执行查询：\n",
+            "tool_calls": [
+              {
+                "id": "call_5e1tkiri6mo51jgvpq0cur0c",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (n) RETURN DISTINCT labels(n) AS node_labels\"}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1747489407115,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 0,
+            "tool_call_id": "call_5e1tkiri6mo51jgvpq0cur0c",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[node_labels:[Person]] map[node_labels:[Topic]] map[node_labels:[Blog]] map[node_labels:[DustUser]] map[node_labels:[Test]] map[node_labels:[Constant]] map[node_labels:[P]] map[node_labels:[Staff]] map[node_labels:[BlogComment]] map[node_labels:[COUNTRY]] map[node_labels:[EVENT]] map[node_labels:[GROUP]] map[node_labels:[PERSON]]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747489407213,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "根据查询结果，数据库中与用户相关的节点类型包括：\n\n- **Person**\n- **DustUser**\n- **Staff**\n\n这些节点类型可能代表不同类型的用户。如果需要进一步分析或查询这些节点的详细信息，请告诉我！",
+            "extraInfo": {
+              "created": 1747489408534,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "user",
+            "content": "用户的节点类型是 DustUser，展示10 个用户",
+            "extraInfo": {
+              "created": 1747493210574,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_iqhaxwy09t7oii3y0s320vv7",
+                "index": 0,
+                "type": "function",
+                "function": {
+                  "name": "executeReadOnlyCypherQuery",
+                  "arguments": "{\"cypher\":\"MATCH (n:DustUser) RETURN n LIMIT 10\"}"
+                }
+              }
+            ],
+            "extraInfo": {
+              "created": 1747493211721,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "tool",
+            "index": 0,
+            "tool_call_id": "call_iqhaxwy09t7oii3y0s320vv7",
+            "content": [
+              {
+                "type": "text",
+                "text": "[map[n:{9 9 [DustUser] map[hashedPassword:$2a$10$tlZ6L9isaOzI4HmH5ITOm.2kV1dq6Khv4YIlR/D/oUheWDVKQuK0m imgUrl: name:testing]}] map[n:{58 58 [DustUser] map[hashedPassword:$2a$10$a1oZQUM1x5uup/D8fZrzceClgL4lubIUdi3uiFtDZco8k0/ikrqV2 imgUrl:1 name:1]}] map[n:{63 63 [DustUser] map[hashedPassword:$2a$10$n63XYtj8/4Nn3XC0ff.YQuv2LUriqsMM6nVXZCz0hgTgnqkVBe7qS imgUrl: name:zyl]}] map[n:{69 69 [DustUser] map[hashedPassword:$2a$10$I1nQCh6K431ECVzVFD1qnOYW4IefRCNzWKmq/O3WT1o9UWpwTWRtS imgUrl: name:kaziz2012]}] map[n:{73 73 [DustUser] map[hashedPassword:$2a$10$wdWCkgeHUjFaP339x33hOulldihPYDtVK.KVF0yz4s6Sgbs/adtX6 imgUrl: name:hdu001]}] map[n:{82 82 [DustUser] map[hashedPassword:$2a$10$wZ3lHN5d4Si/3bLW0LX1UewEAOHYD..ftC/8IGV6V9ssXQZSZL2fC imgUrl:https://www.qinghuanbz.com/wp-content/uploads/2022/06/80.jpg name:神渡凪]}] map[n:{85 85 [DustUser] map[imgUrl:xxx.jpg name:K]}] map[n:{87 87 [DustUser] map[hashedPassword:$2a$10$PrMBwgKgkACjmtGGzwr58OE/vOK/LYhRwL7cbCT5mr5iXGv3Lvqn6 imgUrl:https://pic1.zhimg.com/v2-b4251de7d2499e942c7ebf447a90d2eb_xll.jpg?source=32738c0c name:kirigaya]}] map[n:{88 88 [DustUser] map[hashedPassword:$2a$10$cwpUT1hazCCLpRccda1./eTe5X.yDkrqUee3wVtADMc4kfqYAfgtu imgUrl:https://pic1.zhimg.com/v2-b4251de7d2499e942c7ebf447a90d2eb_xll.jpg?source=32738c0c name:test]}] map[n:{100 100 [DustUser] map[hashedPassword:$2a$10$aswF57pvPkbnn5zyzoSms.cQV1TEWeKdxOBKEMB7TxC3D/Y81Q.cG imgUrl:https://pica.zhimg.com/80/v2-6f5c683d9acb1931640033b18b77b2ad_1440w.png name:stardust]}]]"
+              }
+            ],
+            "extraInfo": {
+              "created": 1747493211795,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "以下是数据库中10个 `DustUser` 类型的用户信息：\n\n1. **用户ID**: 9  \n   - **名称**: testing  \n   - **头像URL**: 无\n\n2. **用户ID**: 58  \n   - **名称**: 1  \n   - **头像URL**: 1\n\n3. **用户ID**: 63  \n   - **名称**: zyl  \n   - **头像URL**: 无\n\n4. **用户ID**: 69  \n   - **名称**: kaziz2012  \n   - **头像URL**: 无\n\n5. **用户ID**: 73  \n   - **名称**: hdu001  \n   - **头像URL**: 无\n\n6. **用户ID**: 82  \n   - **名称**: 神渡凪  \n   - **头像URL**: [https://www.qinghuanbz.com/wp-content/uploads/2022/06/80.jpg](https://www.qinghuanbz.com/wp-content/uploads/2022/06/80.jpg)\n\n7. **用户ID**: 85  \n   - **名称**: K  \n   - **头像URL**: xxx.jpg\n\n8. **用户ID**: 87  \n   - **名称**: kirigaya  \n   - **头像URL**: [https://pic1.zhimg.com/v2-b4251de7d2499e942c7ebf447a90d2eb_xll.jpg?source=32738c0c](https://pic1.zhimg.com/v2-b4251de7d2499e942c7ebf447a90d2eb_xll.jpg?source=32738c0c)\n\n9. **用户ID**: 88  \n   - **名称**: test  \n   - **头像URL**: [https://pic1.zhimg.com/v2-b4251de7d2499e942c7ebf447a90d2eb_xll.jpg?source=32738c0c](https://pic1.zhimg.com/v2-b4251de7d2499e942c7ebf447a90d2eb_xll.jpg?source=32738c0c)\n\n10. **用户ID**: 100  \n    - **名称**: stardust  \n    - **头像URL**: [https://pica.zhimg.com/80/v2-6f5c683d9acb1931640033b18b77b2ad_1440w.png](https://pica.zhimg.com/80/v2-6f5c683d9acb1931640033b18b77b2ad_1440w.png)\n\n如果需要进一步分析或查询这些用户的详细信息，请告诉我！",
+            "extraInfo": {
+              "created": 1747493221290,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
           }
         ],
         "settings": {
@@ -291,7 +1084,7 @@
           "enableWebSearch": false,
           "temperature": 0.7,
           "contextLength": 20,
-          "systemPrompt": ""
+          "systemPrompt": "blender"
         }
       }
     },
@@ -324,91 +1117,120 @@
         "messages": [
           {
             "role": "user",
-            "content": "展示所有的节点类型",
+            "content": "如何通过程序来提交一个release到GitHub仓库",
             "extraInfo": {
-              "created": 1747338594891,
+              "created": 1747502973241,
               "state": "success",
-              "serverName": "deepseek"
+              "serverName": "Huoshan DeepSeek"
             }
           },
           {
             "role": "assistant",
-            "content": "",
-            "tool_calls": [
-              {
-                "id": "call_0_22e2cd5d-512a-473c-a3bf-2defc9db154f",
-                "index": 0,
-                "type": "function",
-                "function": {
-                  "name": "executeReadOnlyCypherQuery",
-                  "arguments": "{\"cypher\":\"MATCH (n) RETURN DISTINCT labels(n) AS nodeTypes\"}"
-                }
-              }
-            ],
+            "content": "要通过程序提交一个 release 到 GitHub 仓库，你可以使用 GitHub 的 REST API 或者 GitHub CLI 工具。以下是使用 Python 和 `requests` 库通过 GitHub REST API 提交 release 的步骤。\n\n### 1. 获取 GitHub 个人访问令牌 (PAT)\n首先，你需要在 GitHub 上生成一个个人访问令牌 (Personal Access Token, PAT)。这个令牌将用于认证你的请求。\n\n1. 登录 GitHub。\n2. 点击右上角的头像，选择 **Settings**。\n3. 在左侧菜单中选择 **Developer settings**。\n4. 选择 **Personal access tokens**，然后点击 **Generate new token**。\n5. 选择所需的权限（至少需要 `repo` 权限）。\n6. 生成令牌并保存好，因为之后你将无法再次查看它。\n\n### 2. 使用 Python 提交 Release\n\n以下是一个使用 Python 和 `requests` 库提交 release 的示例代码：\n\n```python\nimport requests\nimport json\n\n# GitHub 仓库信息\nrepo_owner = \"your_username\"\nrepo_name = \"your_repo_name\"\n\n# GitHub 个人访问令牌\ntoken = \"your_personal_access_token\"\n\n# Release 信息\ntag_name = \"v1.0.0\"\ntarget_commitish = \"main\"  # 可以是分支名或提交的 SHA\nname = \"Release v1.0.0\"\nbody = \"This is the first release.\"\ndraft = False\nprerelease = False\n\n# GitHub API URL\nurl = f\"https://api.github.com/repos/{repo_owner}/{repo_name}/releases\"\n\n# 请求头\nheaders = {\n    \"Authorization\": f\"token {token}\",\n    \"Accept\": \"application/vnd.github.v3+json\"\n}\n\n# 请求体\ndata = {\n    \"tag_name\": tag_name,\n    \"target_commitish\": target_commitish,\n    \"name\": name,\n    \"body\": body,\n    \"draft\": draft,\n    \"prerelease\": prerelease\n}\n\n# 发送 POST 请求\nresponse = requests.post(url, headers=headers, data=json.dumps(data))\n\n# 检查响应\nif response.status_code == 201:\n    print(\"Release created successfully!\")\n    print(response.json())\nelse:\n    print(f\"Failed to create release. Status code: {response.status_code}\")\n    print(response.text)\n```\n\n### 3. 运行代码\n\n将上述代码保存为一个 Python 文件（如 `create_release.py`），然后在终端中运行：\n\n```bash\npython create_release.py\n```\n\n如果一切顺利，你将在 GitHub 仓库中看到一个新的 release。\n\n### 4. 使用 GitHub CLI\n\n如果你更喜欢使用命令行工具，可以使用 GitHub CLI (`gh`) 来创建 release。\n\n首先，安装 GitHub CLI：\n\n```bash\n# 在 macOS 上使用 Homebrew 安装\nbrew install gh\n\n# 在 Ubuntu 上使用 apt 安装\nsudo apt install gh\n\n# 在 Windows 上使用 Chocolatey 安装\nchoco install gh\n```\n\n然后，使用以下命令创建 release：\n\n```bash\ngh release create v1.0.0 --target main --title \"Release v1.0.0\" --notes \"This is the first release.\"\n```\n\n### 5. 自动化流程\n\n你可以将上述代码集成到 CI/CD 管道中，以便在每次发布新版本时自动创建 release。\n\n### 注意事项\n\n- 确保你的个人访问令牌具有足够的权限。\n- 如果 release 已经存在，API 会返回错误。你可以先删除旧的 release，或者使用不同的 tag 名称。\n- 如果你需要上传文件到 release，可以使用 `upload_url` 字段来上传资产。\n\n通过这种方式，你可以轻松地通过程序提交 release 到 GitHub 仓库。",
             "extraInfo": {
-              "created": 1747338599861,
+              "created": 1747502999221,
               "state": "success",
-              "serverName": "deepseek"
+              "serverName": "Huoshan DeepSeek"
             }
           },
           {
-            "role": "tool",
-            "tool_call_id": "call_0_22e2cd5d-512a-473c-a3bf-2defc9db154f",
-            "content": [
-              {
-                "type": "error",
-                "text": "McpError: MCP error -32603: Neo4jError: Neo.ClientError.Security.Unauthorized (The client is unauthorized due to authentication failure.)"
-              }
-            ],
+            "role": "user",
+            "content": "gh 工具如何上传文件呢",
             "extraInfo": {
-              "created": 1747338599969,
-              "state": "tool call failed",
-              "serverName": "deepseek",
-              "usage": {
-                "prompt_tokens": 135,
-                "completion_tokens": 38,
-                "total_tokens": 173,
-                "prompt_tokens_details": {
-                  "cached_tokens": 0
-                },
-                "prompt_cache_hit_tokens": 0,
-                "prompt_cache_miss_tokens": 135
-              }
+              "created": 1747503384818,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
             }
           },
           {
             "role": "assistant",
-            "content": "目前无法获取节点类型信息，因为访问数据库时出现了身份验证失败的错误。如果您有权限或需要进一步帮助，请提供更多信息或调整访问权限。",
+            "content": "使用 GitHub CLI (`gh`) 上传文件到 GitHub Release 非常简单。以下是具体步骤：\n\n---\n\n### 1. 安装 GitHub CLI\n如果你还没有安装 `gh`，请先安装它：\n\n- **macOS**:\n  ```bash\n  brew install gh\n  ```\n- **Ubuntu/Debian**:\n  ```bash\n  sudo apt install gh\n  ```\n- **Windows**:\n  ```bash\n  choco install gh\n  ```\n\n安装完成后，运行以下命令登录 GitHub：\n```bash\ngh auth login\n```\n\n---\n\n### 2. 创建 Release 并上传文件\n你可以使用 `gh release create` 命令来创建 Release 并上传文件。\n\n#### 创建 Release 并上传文件\n```bash\ngh release create <tag> <files> --title \"Release Title\" --notes \"Release Notes\"\n```\n\n- `<tag>`：Release 的标签名（如 `v1.0.0`）。\n- `<files>`：要上传的文件路径（可以是多个文件，用空格分隔）。\n- `--title`：Release 的标题。\n- `--notes`：Release 的说明。\n\n**示例**：\n```bash\ngh release create v1.0.0 build/app.zip build/README.md --title \"Release v1.0.0\" --notes \"This is the first release.\"\n```\n\n---\n\n### 3. 上传文件到已存在的 Release\n如果你已经创建了 Release，可以使用 `gh release upload` 命令上传文件。\n\n#### 上传文件到已存在的 Release\n```bash\ngh release upload <tag> <files>\n```\n\n- `<tag>`：Release 的标签名（如 `v1.0.0`）。\n- `<files>`：要上传的文件路径（可以是多个文件，用空格分隔）。\n\n**示例**：\n```bash\ngh release upload v1.0.0 build/app.zip build/README.md\n```\n\n---\n\n### 4. 其他常用选项\n- `--draft`：将 Release 创建为草稿。\n- `--prerelease`：将 Release 标记为预发布。\n- `--target <branch>`：指定 Release 的目标分支。\n\n**示例**：\n```bash\ngh release create v1.0.0 build/app.zip --draft --prerelease --target develop\n```\n\n---\n\n### 5. 查看 Release 和文件\n你可以使用以下命令查看 Release 的详细信息：\n```bash\ngh release view <tag>\n```\n\n---\n\n### 6. 删除 Release 或文件\n- 删除 Release：\n  ```bash\n  gh release delete <tag>\n  ```\n- 删除 Release 中的文件：\n  目前 GitHub CLI 不支持直接删除 Release 中的文件，你需要通过 GitHub 网页界面或 API 手动删除。\n\n---\n\n### 7. 自动化流程\n你可以将 `gh` 命令集成到 CI/CD 管道中，以便在构建完成后自动创建 Release 并上传文件。\n\n**示例**：\n```bash\n# 构建项目\nnpm run build\n\n# 创建 Release 并上传文件\ngh release create v1.0.0 dist/* --title \"Release v1.0.0\" --notes \"Automated release\"\n```\n\n---\n\n通过以上步骤，你可以轻松使用 `gh` 工具上传文件到 GitHub Release！",
             "extraInfo": {
-              "created": 1747338606001,
+              "created": 1747503407998,
               "state": "success",
-              "serverName": "deepseek",
-              "usage": {
-                "prompt_tokens": 220,
-                "completion_tokens": 34,
-                "total_tokens": 254,
-                "prompt_tokens_details": {
-                  "cached_tokens": 128
-                },
-                "prompt_cache_hit_tokens": 128,
-                "prompt_cache_miss_tokens": 92
-              }
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "user",
+            "content": "我的仓库在  https://github.com/LSTM-Kirigaya/openmcp-client，我想要发布本地的  openmcp-0.0.8.vsix 作为一个 release，我已经使用 gh auth login 登陆完毕，我后续应该怎么做  ",
+            "extraInfo": {
+              "created": 1747503818585,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "你已经完成了 `gh auth login` 登录，接下来可以按照以下步骤将本地的 `openmcp-0.0.8.vsix` 文件发布为 GitHub Release。\n\n---\n\n### 1. 确保文件存在\n首先，确认 `openmcp-0.0.8.vsix` 文件存在于当前目录或指定路径中。例如：\n```bash\nls openmcp-0.0.8.vsix\n```\n\n如果文件不存在，请确保路径正确。\n\n---\n\n### 2. 创建 Release 并上传文件\n使用 `gh release create` 命令创建 Release 并上传文件。\n\n#### 命令格式：\n```bash\ngh release create <tag> <file> --title \"Release Title\" --notes \"Release Notes\"\n```\n\n- `<tag>`：Release 的标签名（如 `v0.0.8`）。\n- `<file>`：要上传的文件路径（如 `openmcp-0.0.8.vsix`）。\n- `--title`：Release 的标题。\n- `--notes`：Release 的说明。\n\n#### 具体命令：\n```bash\ngh release create v0.0.8 openmcp-0.0.8.vsix --title \"Release v0.0.8\" --notes \"Initial release of OpenMCP client.\"\n```\n\n---\n\n### 3. 验证 Release\n发布完成后，你可以通过以下命令查看 Release 的详细信息：\n```bash\ngh release view v0.0.8\n```\n\n你也可以访问你的 GitHub 仓库页面，查看 Release 是否成功发布：\n[https://github.com/LSTM-Kirigaya/openmcp-client/releases](https://github.com/LSTM-Kirigaya/openmcp-client/releases)\n\n---\n\n### 4. 可选：上传文件到已存在的 Release\n如果你已经创建了 Release，但忘记上传文件，可以使用 `gh release upload` 命令上传文件。\n\n#### 命令格式：\n```bash\ngh release upload <tag> <file>\n```\n\n#### 具体命令：\n```bash\ngh release upload v0.0.8 openmcp-0.0.8.vsix\n```\n\n---\n\n### 5. 其他选项\n- **标记为预发布**：如果这是一个预发布版本，可以添加 `--prerelease` 选项。\n  ```bash\n  gh release create v0.0.8 openmcp-0.0.8.vsix --title \"Release v0.0.8\" --notes \"Initial release of OpenMCP client.\" --prerelease\n  ```\n- **标记为草稿**：如果不想立即发布，可以添加 `--draft` 选项。\n  ```bash\n  gh release create v0.0.8 openmcp-0.0.8.vsix --title \"Release v0.0.8\" --notes \"Initial release of OpenMCP client.\" --draft\n  ```\n\n---\n\n### 6. 自动化脚本（可选）\n如果你需要频繁发布 Release，可以将上述命令写入脚本中，例如 `release.sh`：\n```bash\n#!/bin/bash\nTAG=\"v0.0.8\"\nFILE=\"openmcp-0.0.8.vsix\"\nTITLE=\"Release v0.0.8\"\nNOTES=\"Initial release of OpenMCP client.\"\n\ngh release create $TAG $FILE --title \"$TITLE\" --notes \"$NOTES\"\n```\n\n运行脚本：\n```bash\nbash release.sh\n```\n\n---\n\n### 7. 完成\n现在，你的 `openmcp-0.0.8.vsix` 文件已经成功发布为 GitHub Release！你可以通过仓库的 Releases 页面查看和下载它。\n\n如果有其他问题，欢迎随时提问！ 😊",
+            "extraInfo": {
+              "created": 1747503844524,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "user",
+            "content": "这个命令是如何知道我要发布的仓库的？",
+            "extraInfo": {
+              "created": 1747503889359,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "当你使用 `gh release create` 命令时，`gh` 工具会自动检测当前目录下的 Git 仓库信息，从而确定你要发布的目标仓库。以下是它的工作原理：\n\n---\n\n### 1. **当前目录的 Git 仓库**\n`gh` 工具会检查当前目录是否是一个 Git 仓库。它会读取 `.git` 目录中的信息，包括远程仓库的 URL。\n\n- 如果你在仓库的根目录下运行命令，`gh` 会直接使用该仓库。\n- 如果你不在仓库的根目录下，`gh` 会向上查找父目录，直到找到 `.git` 目录。\n\n---\n\n### 2. **远程仓库的 URL**\n`gh` 会从 Git 配置中读取远程仓库的 URL。通常，Git 仓库的远程 URL 会配置在 `.git/config` 文件中，例如：\n```ini\n[remote \"origin\"]\n    url = https://github.com/LSTM-Kirigaya/openmcp-client.git\n```\n\n`gh` 会解析这个 URL，提取出仓库的所有者（`LSTM-Kirigaya`）和仓库名称（`openmcp-client`）。\n\n---\n\n### 3. **手动指定仓库**\n如果你不在 Git 仓库目录下，或者想指定其他仓库，可以使用 `--repo` 选项明确指定仓库。格式为 `<owner>/<repo>`。\n\n例如：\n```bash\ngh release create v0.0.8 openmcp-0.0.8.vsix --title \"Release v0.0.8\" --notes \"Initial release of OpenMCP client.\" --repo LSTM-Kirigaya/openmcp-client\n```\n\n---\n\n### 4. **验证当前仓库**\n你可以使用以下命令查看 `gh` 检测到的当前仓库：\n```bash\ngh repo view\n```\n\n输出示例：\n```\nhttps://github.com/LSTM-Kirigaya/openmcp-client\n```\n\n---\n\n### 5. **总结**\n`gh release create` 命令通过以下方式确定目标仓库：\n1. 检查当前目录的 Git 仓库信息。\n2. 解析远程仓库的 URL，提取所有者和仓库名称。\n3. 如果没有找到 Git 仓库，或者需要指定其他仓库，可以使用 `--repo` 选项。\n\n因此，只要你当前目录在 `openmcp-client` 仓库中，`gh` 就会自动知道你要发布的仓库是 `LSTM-Kirigaya/openmcp-client`。",
+            "extraInfo": {
+              "created": 1747503908397,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "user",
+            "content": "以下是我的文字风格：  最近给我的 Lagrange.RagBot，简称 TIP 系统，做了一套 walktalk 系统，用于收集用户的 bug report 数据。我在想，如何保存这些数据，这次，我就不再只是使用 json 了，那样实在太不优雅了，这次，我打算玩儿点新的玩具，比如说文档数据库 elasticsearch（简称 es）。\n\nInfo\n\nes 我也不是第一次玩啦，早在 ShareMiracle 项目初期，我就采用了 es 存储了不同医学数据的元信息，并加以整理。之前使用 python 操作过 es 数据库：elastic search (es) python 基础使用。只不过，当初的 es 并不是我亲手起起来了，是师兄帮我起的，现在在我自己的服务器上，我打算自己起一个。\n\nes 安装\n老规矩，还是只展示 Linux 上的\n\ncd ~/package\nwget -c https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-from-archive-on-linux-macos\ntar -xvf elasticsearch-9.0.0-linux-x86_64.tar.gz\n复制\n先通过启动完成初始化：\n\ncd elasticsearch-9.0.0-linux-x86_64\nbin/elasticsearch\n复制\n启动后，会生成一串密码，这是 es 的根用户「elastic」的密码，记录如下两个环境变量：\n\nexport ES_HOME=$HOME/package/elasticsearch-9.0.0\nexport PATH=$PATH:$ES_HOME/bin\nexport ES_PASSWORD=<刚刚看到的密码>\n复制\n如果不记得了，可以通过下面的命令重置并获取新的密码：\n\nbin/elasticsearch-reset-password -u elastic\n复制\n这样，就完成了基本的安装。\n\n了解你的 es\n对于刚刚启动的 es，我们可以测试一下连通性\n\ncurl --cacert $ES_HOME/config/certs/http_ca.crt -u elastic:$ES_PASSWORD https://localhost:9200\n复制\n得到如下输出说明成功：\n\n{\n  \"name\" : \"dust-server\",\n  \"cluster_name\" : \"elasticsearch\",\n  \"cluster_uuid\" : \"EwPS00rdStKQoeZgGLFilA\",\n  \"version\" : {\n    \"number\" : \"9.0.0\",\n    \"build_flavor\" : \"default\",\n    \"build_type\" : \"tar\",\n    \"build_hash\" : \"112859b85d50de2a7e63f73c8fc70b99eea24291\",\n    \"build_date\" : \"2025-04-08T15:13:46.049795831Z\",\n    \"build_snapshot\" : false,\n    \"lucene_version\" : \"10.1.0\",\n    \"minimum_wire_compatibility_version\" : \"8.18.0\",\n    \"minimum_index_compatibility_version\" : \"8.0.0\"\n  },\n  \"tagline\" : \"You Know, for Search\"\n}\n复制\nInfo\n\nes 默认开在 9200 端口上，默认使用 $ES_HOME/config/elasticsearch.yml 进行配置。es 初始具有一个名为 elastic ，密码为 $ES_PASSWORD 的根用户。\n\n不同语言都提供了 es 的 sdk，es 也是目前支持最为广泛的通用型 nosql 数据之一，因此不必担心找不到资料的问题。\n\n通过 Kibana 进行可视化 & 管理\n作为数据库应用，管理UI肯定是少不了的，es 官方提供了 Kibana——一款致力于数据分析的 dashboard 作为 es 的前端界面，进行管理。\n\n先下载它：\n\ncd ~/package\nwget -c https://artifacts.elastic.co/downloads/kibana/kibana-9.0.1-linux-x86_64.tar.gz\ntar -xvf kibana-9.0.1-linux-x86_64.tar.gz && cd kibana-9.0.1-linux-x86_64\n复制\n进入后，通过下面的指令启动它：\n\nbin/kibana\n复制\n这样默认会在 http://localhost:5601/ 打开一个 web 服务进行可视化。\n\nInfo 服务器看不到UI怎么办？\n\n推荐在 vscode 中利用 remote ssh 连接到服务器，在 vscode 的终端中开启 kibana，remote ssh 会自动帮你转发出去，这样本地就能看到界面了。\n\n刚刚进入界面需要等待 kibana 的初始化，等待完成后。需要输入一个访问 token，在服务器上通过下面的命令可以产生访问 token：\n\ncd $ES_HOME\nbin/elasticsearch-create-enrollment-token --scope kibana\n复制\n输入 es 的根用户账号和密码就能进入（es 初始具有一个名为 elastic ，密码为 $ES_PASSWORD 的根用户）。\n\n进入页面后，也能看到我们创建过的访问 token：\n\n\n后台启动\n确定连接无误后，我们把刚刚两个服务关闭，然后放在后台运行吧，这里你可以随意选择你的托管器，我使用 pm2，它的教程如下：超级好用的进程管理器 pm2 使用教程。\n\n上述两个服务，分别进入它们的目录后，使用如下命令运行：   请将上述的 gh 的使用方法帮我整理成一篇博客",
+            "extraInfo": {
+              "created": 1747503999587,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
+            }
+          },
+          {
+            "role": "assistant",
+            "content": "### 使用 GitHub CLI (`gh`) 发布 Release 并上传文件\n\n最近，我在给我的 **Lagrange.RagBot**（简称 **TIP 系统**）做一套 **walktalk** 系统，用于收集用户的 bug report 数据。在保存这些数据时，我不想再用传统的 JSON 文件了，这次我打算玩点新花样——**文档数据库 Elasticsearch（简称 ES）**。不过，今天的主角不是 ES，而是 **GitHub CLI (`gh`)**，它让我在发布 Release 和上传文件时变得异常轻松。\n\n---\n\n### 1. 什么是 GitHub CLI (`gh`)？\n\n`gh` 是 GitHub 官方提供的命令行工具，可以让你通过终端直接与 GitHub 交互，比如创建仓库、管理 Issues、发布 Release 等。它的设计非常简洁，使用起来非常顺手。\n\n---\n\n### 2. 安装 GitHub CLI\n\n首先，确保你已经安装了 `gh`。如果没有，可以通过以下命令安装：\n\n- **macOS**:\n  ```bash\n  brew install gh\n  ```\n- **Ubuntu/Debian**:\n  ```bash\n  sudo apt install gh\n  ```\n- **Windows**:\n  ```bash\n  choco install gh\n  ```\n\n安装完成后，运行以下命令登录 GitHub：\n```bash\ngh auth login\n```\n\n按照提示完成登录即可。\n\n---\n\n### 3. 发布 Release 并上传文件\n\n假设我的仓库是 `https://github.com/LSTM-Kirigaya/openmcp-client`，我想将本地的 `openmcp-0.0.8.vsix` 文件发布为一个 Release。\n\n#### 3.1 创建 Release 并上传文件\n\n使用 `gh release create` 命令可以一键创建 Release 并上传文件。命令格式如下：\n```bash\ngh release create <tag> <file> --title \"Release Title\" --notes \"Release Notes\"\n```\n\n- `<tag>`：Release 的标签名（如 `v0.0.8`）。\n- `<file>`：要上传的文件路径（如 `openmcp-0.0.8.vsix`）。\n- `--title`：Release 的标题。\n- `--notes`：Release 的说明。\n\n**具体命令**：\n```bash\ngh release create v0.0.8 openmcp-0.0.8.vsix --title \"Release v0.0.8\" --notes \"Initial release of OpenMCP client.\"\n```\n\n#### 3.2 验证 Release\n\n发布完成后，可以通过以下命令查看 Release 的详细信息：\n```bash\ngh release view v0.0.8\n```\n\n你也可以访问 GitHub 仓库的 Releases 页面，查看 Release 是否成功发布：\n[https://github.com/LSTM-Kirigaya/openmcp-client/releases](https://github.com/LSTM-Kirigaya/openmcp-client/releases)\n\n---\n\n### 4. 上传文件到已存在的 Release\n\n如果你已经创建了 Release，但忘记上传文件，可以使用 `gh release upload` 命令上传文件。\n\n#### 命令格式：\n```bash\ngh release upload <tag> <file>\n```\n\n**具体命令**：\n```bash\ngh release upload v0.0.8 openmcp-0.0.8.vsix\n```\n\n---\n\n### 5. 其他选项\n\n`gh release create` 还支持一些有用的选项：\n- **标记为预发布**：如果这是一个预发布版本，可以添加 `--prerelease` 选项。\n  ```bash\n  gh release create v0.0.8 openmcp-0.0.8.vsix --title \"Release v0.0.8\" --notes \"Initial release of OpenMCP client.\" --prerelease\n  ```\n- **标记为草稿**：如果不想立即发布，可以添加 `--draft` 选项。\n  ```bash\n  gh release create v0.0.8 openmcp-0.0.8.vsix --title \"Release v0.0.8\" --notes \"Initial release of OpenMCP client.\" --draft\n  ```\n\n---\n\n### 6. 自动化脚本\n\n如果你需要频繁发布 Release，可以将上述命令写入脚本中，例如 `release.sh`：\n```bash\n#!/bin/bash\nTAG=\"v0.0.8\"\nFILE=\"openmcp-0.0.8.vsix\"\nTITLE=\"Release v0.0.8\"\nNOTES=\"Initial release of OpenMCP client.\"\n\ngh release create $TAG $FILE --title \"$TITLE\" --notes \"$NOTES\"\n```\n\n运行脚本：\n```bash\nbash release.sh\n```\n\n---\n\n### 7. `gh` 如何知道目标仓库？\n\n`gh` 工具会自动检测当前目录的 Git 仓库信息，从而确定你要发布的目标仓库。它的工作原理如下：\n1. 检查当前目录的 `.git` 目录，读取远程仓库的 URL。\n2. 解析 URL，提取仓库的所有者和名称。\n3. 如果没有找到 Git 仓库，或者需要指定其他仓库，可以使用 `--repo` 选项。\n\n例如：\n```bash\ngh release create v0.0.8 openmcp-0.0.8.vsix --title \"Release v0.0.8\" --notes \"Initial release of OpenMCP client.\" --repo LSTM-Kirigaya/openmcp-client\n```\n\n---\n\n### 8. 总结\n\n通过 `gh`，发布 Release 和上传文件变得非常简单。它的自动检测功能让我无需手动指定仓库，而丰富的选项也满足了我的各种需求。如果你还没有尝试过 `gh`，强烈推荐你试试，它绝对能让你的 GitHub 操作更加高效！\n\n---\n\n### 附：我的 Elasticsearch 小记\n\n顺便提一下，这次我打算用 **Elasticsearch（ES）** 来存储用户反馈数据。ES 是一个强大的文档数据库，我之前在 **ShareMiracle** 项目中也用过它来存储医学数据的元信息。这次，我打算自己起一个 ES 实例，并尝试用 **Kibana** 进行数据可视化。如果你对 ES 感兴趣，可以看看我的另一篇博客：[Elasticsearch 基础使用指南](#)。\n\n---\n\n以上就是我使用 `gh` 发布 Release 的完整流程。如果你有任何问题，欢迎留言讨论！\n\n---\n\n**相关链接**：\n- [GitHub CLI 官方文档](https://cli.github.com/)\n- [Elasticsearch 官方文档](https://www.elastic.co/guide/index.html)",
+            "extraInfo": {
+              "created": 1747504045146,
+              "state": "success",
+              "serverName": "Huoshan DeepSeek"
             }
           }
         ],
         "settings": {
-          "modelIndex": 0,
+          "modelIndex": 7,
           "enableTools": [
             {
               "name": "executeReadOnlyCypherQuery",
               "description": "执行只读的 Cypher 查询",
-              "enabled": true
+              "enabled": false
             }
           ],
           "enableWebSearch": false,
           "temperature": 0.7,
           "contextLength": 20,
           "systemPrompt": ""
+        }
+      }
+    },
+    {
+      "name": "工具",
+      "icon": "icon-tool",
+      "type": "tool",
+      "componentIndex": 2,
+      "storage": {
+        "currentToolName": "executeReadOnlyCypherQuery",
+        "formData": {
+          "cypher": "MATCH (u:DustUser)-[:PUBLISH]->(c:Comment)-[:COMMENT_ON]->(b:Blog) RETURN c.content AS comment_content, b.seq AS blog_seq, u.username AS commenter ORDER BY c.create_time DESC LIMIT 10"
         }
       }
     }

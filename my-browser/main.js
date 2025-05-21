@@ -9,6 +9,12 @@ async function main() {
     )
 
     console.log(res);
+
+    const res2 = await handleToolCall(
+        'k_get_full_page_text'
+    );
+
+    console.log(res2);    
 }
 
 main();

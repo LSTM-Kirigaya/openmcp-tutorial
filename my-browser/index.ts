@@ -100,6 +100,14 @@ const TOOLS: Tool[] = [
 			required: ["script"],
 		},
 	},
+	{
+		name: "k_get_full_page_text",
+		description: "获取页面所有文本内容",
+		inputSchema: {
+			type: "object",
+			properties: {},
+		},
+	},
 ];
 
 // Global state
@@ -109,7 +117,11 @@ const consoleLogs: string[] = [];
 const screenshots = new Map<string, string>();
 let previousLaunchOptions: any = null;
 
-async function ensureBrowser({ launchOptions, allowDangerous }: any) {
+async function ensureBrowser(args: any = {}) {
+	let {
+		launchOptions = {},
+		allowDangerous = true
+	} = args;
 
 	const DANGEROUS_ARGS = [
 		'--no-sandbox',
@@ -164,7 +176,7 @@ async function ensureBrowser({ launchOptions, allowDangerous }: any) {
 		const npx_args = {
 			headless: true,
 			args: [
-                '--proxy-server=http://127.0.0.1:7890'
+                // '--proxy-server=http://127.0.0.1:7890'
             ]
 		}
 		// const docker_args = { headless: true, args: ["--no-sandbox", "--single-process", "--no-zygote"] }
@@ -227,6 +239,7 @@ export async function handleToolCall(name: string, args: any): Promise<CallToolR
 		case "k_navigate":
 			await page.goto(args.url, {
 				waitUntil: 'networkidle2',
+				timeout: 0
 			});
 			return {
 				content: [{
@@ -398,6 +411,50 @@ export async function handleToolCall(name: string, args: any): Promise<CallToolR
 					content: [{
 						type: "text",
 						text: `Script execution failed: ${(error as Error).message}`,
+					}],
+					isError: true,
+				};
+			}
+		
+		case "k_get_full_page_text":
+			try {
+				await page.evaluate(() => {
+					window.mcpHelper = {
+						logs: [],
+						originalConsole: { ...console },
+					};
+
+					['log', 'info', 'warn', 'error'].forEach(method => {
+						(console as any)[method] = (...args: any[]) => {
+							window.mcpHelper.logs.push(`[${method}] ${args.join(' ')}`);
+							(window.mcpHelper.originalConsole as any)[method](...args);
+						};
+					});
+				});
+				
+				const result = await page.evaluate('document.body.innerText');
+
+				const logs = await page.evaluate(() => {
+					Object.assign(console, window.mcpHelper.originalConsole);
+					const logs = window.mcpHelper.logs;
+					delete (window as any).mcpHelper;
+					return logs;
+				});
+
+				return {
+					content: [
+						{
+							type: "text",
+							text: `Execution result:\n${JSON.stringify(result, null, 2)}\n\nConsole output:\n${logs.join('\n')}`,
+						},
+					],
+					isError: false,
+				};
+			} catch (error) {
+				return {
+					content: [{
+						type: "text",
+						text: `Failed to get full page text: ${(error as Error).message}`,
 					}],
 					isError: true,
 				};
