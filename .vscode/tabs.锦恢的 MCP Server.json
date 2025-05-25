@@ -1,4 +1,5 @@
 {
+  "clientId": "be6e0792-0792-5e0792e4474-8e0792e4474fad6-4fad661e",
   "currentIndex": 1,
   "tabs": [
     {
@@ -7,19 +8,13 @@
       "type": "blank",
       "componentIndex": 2,
       "storage": {
+        "activeNames": [
+          0
+        ],
         "formData": {
           "city_code": 0
         },
-        "currentToolName": "get weather by city code",
-        "lastToolCallResponse": {
-          "content": [
-            {
-              "type": "text",
-              "text": "CityWeather(city_name_en='hangzhou', city_name_cn='杭州', city_code='101210101', temp='18.1', wd='', ws='', sd='56%', aqi='34', weather='晴')"
-            }
-          ],
-          "isError": false
-        }
+        "currentToolName": "weather"
       }
     },
     {
@@ -28,14 +23,17 @@
       "type": "blank",
       "componentIndex": 3,
       "storage": {
+        "activeNames": [
+          0
+        ],
         "messages": [
           {
             "role": "user",
-            "content": "请问杭州今天的天气是多少",
+            "content": "今天杭州的天气多少",
             "extraInfo": {
-              "created": 1746297151124,
+              "created": 1747908542195,
               "state": "success",
-              "serverName": "Huoshan DeepSeek"
+              "serverName": "deepseek"
             }
           },
           {
@@ -43,59 +41,94 @@
             "content": "",
             "tool_calls": [
               {
-                "id": "call_bsj65pr7pi0lc8hped0a92ll",
+                "id": "call_0_48ab0df5-5e6d-4148-97fa-fd2a93cbbd43",
                 "index": 0,
                 "type": "function",
                 "function": {
-                  "name": "get weather by city code",
+                  "name": "weather",
                   "arguments": "{\"city_code\":101210101}"
                 }
               }
             ],
             "extraInfo": {
-              "created": 1746297151851,
+              "created": 1747908551077,
               "state": "success",
-              "serverName": "Huoshan DeepSeek"
+              "serverName": "deepseek"
             }
           },
           {
             "role": "tool",
-            "tool_call_id": "call_bsj65pr7pi0lc8hped0a92ll",
+            "index": 0,
+            "tool_call_id": "call_0_48ab0df5-5e6d-4148-97fa-fd2a93cbbd43",
             "content": [
               {
                 "type": "text",
-                "text": "CityWeather(city_name_en='hangzhou', city_name_cn='杭州', city_code='101210101', temp='18', wd='', ws='', sd='54%', aqi='34', weather='晴')"
+                "text": "CityWeather(city_name_en='hangzhou', city_name_cn='杭州', city_code='101210101', temp='28.2', wd='', ws='', sd='63%', aqi='46', weather='多云')"
               }
             ],
             "extraInfo": {
-              "created": 1746297151884,
+              "created": 1747908551232,
               "state": "success",
-              "serverName": "Huoshan DeepSeek"
+              "serverName": "deepseek",
+              "usage": {
+                "prompt_tokens": 132,
+                "completion_tokens": 20,
+                "total_tokens": 152,
+                "prompt_tokens_details": {
+                  "cached_tokens": 64
+                },
+                "prompt_cache_hit_tokens": 64,
+                "prompt_cache_miss_tokens": 68
+              }
             }
           },
           {
             "role": "assistant",
-            "content": "杭州今天的天气是晴，气温为18摄氏度，湿度为54%，空气质量指数（AQI）为34。",
+            "content": "今天杭州的天气是多云，气温为28.2°C，湿度为63%，空气质量指数（AQI）为46，空气质量良好。",
             "extraInfo": {
-              "created": 1746297152576,
+              "created": 1747908558104,
               "state": "success",
-              "serverName": "Huoshan DeepSeek"
+              "serverName": "deepseek",
+              "usage": {
+                "prompt_tokens": 218,
+                "completion_tokens": 31,
+                "total_tokens": 249,
+                "prompt_tokens_details": {
+                  "cached_tokens": 128
+                },
+                "prompt_cache_hit_tokens": 128,
+                "prompt_cache_miss_tokens": 90
+              }
             }
           }
         ],
         "settings": {
-          "modelIndex": 15,
+          "modelIndex": 0,
           "enableTools": [
             {
-              "name": "get weather by city code",
+              "name": "weather",
               "description": "根据城市天气预报的城市编码 (int)，获取指定城市的天气信息",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "city_code": {
+                    "title": "City Code",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "city_code"
+                ],
+                "title": "get_weather_by_codeArguments"
+              },
               "enabled": true
             }
           ],
           "enableWebSearch": false,
-          "temperature": 0.7,
-          "contextLength": 10,
-          "systemPrompt": ""
+          "temperature": 0.6,
+          "contextLength": 20,
+          "systemPrompt": "",
+          "parallelToolCalls": true
         }
       }
     }

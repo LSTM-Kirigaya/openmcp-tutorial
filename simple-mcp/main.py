@@ -83,7 +83,7 @@ def get_city_weather_by_city_name(city_code: str) -> Optional[CityWeather]:
         return None
 
 @mcp.tool(
-    name='get weather by city code',
+    name='weather',
     description='根据城市天气预报的城市编码 (int)，获取指定城市的天气信息'
 )
 def get_weather_by_code(city_code: int) -> str:

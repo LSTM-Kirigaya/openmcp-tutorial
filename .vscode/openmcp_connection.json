@@ -1,26 +1,123 @@
 {
   "items": [
-    {
-      "type": "stdio",
-      "name": "my-browser",
-      "version": "0.1.0",
-      "command": "node",
-      "args": [
-        "my-browser/dist/index.js"
-      ],
-      "cwd": "{workspace}",
-      "env": {
-        "HOME": "/Users/bytedance",
-        "LOGNAME": "bytedance",
-        "PATH": "/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Users/bytedance/Downloads/Visual Studio Code.app/Contents/Resources/app/bin/:/Applications/Trae CN.app/Contents/Resources/app/bin/lib",
-        "SHELL": "/bin/zsh",
-        "TERM": "xterm-256color",
-        "USER": "bytedance"
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/crawl4ai-mcp",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/bytedance",
+          "LOGNAME": "bytedance",
+          "PATH": "/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Users/bytedance/Downloads/Visual Studio Code.app/Contents/Resources/app/bin/:/Applications/Trae CN.app/Contents/Resources/app/bin/lib",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "bytedance"
+        },
+        "serverInfo": {
+          "name": "crawl4ai-mcp",
+          "version": "1.9.1"
+        },
+        "filePath": "{workspace}/crawl4ai-mcp/main.py",
+        "name": "crawl4ai-mcp",
+        "version": "1.9.1"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/simple-mcp",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/bytedance",
+          "LOGNAME": "bytedance",
+          "PATH": "/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Users/bytedance/Downloads/Visual Studio Code.app/Contents/Resources/app/bin/",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "bytedance"
+        },
+        "serverInfo": {
+          "name": "锦恢的 MCP Server",
+          "version": "1.7.0"
+        },
+        "filePath": "{workspace}/simple-mcp/main.py",
+        "name": "锦恢的 MCP Server",
+        "version": "1.7.0"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "node",
+        "args": [
+          "my-browser/dist/index.js"
+        ],
+        "url": "",
+        "cwd": "{workspace}",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/bytedance",
+          "LOGNAME": "bytedance",
+          "PATH": "/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Users/bytedance/Downloads/Visual Studio Code.app/Contents/Resources/app/bin/",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "bytedance"
+        },
+        "serverInfo": {
+          "name": "my-browser",
+          "version": "0.1.0"
+        },
+        "filePath": "{workspace}/my-browser/dist/index.js",
+        "name": "my-browser",
+        "version": "0.1.0"
       },
-      "filePath": "{workspace}/my-browser/dist/index.js"
-    },
+      {
+        "connectionType": "STDIO",
+        "command": "uv",
+        "args": [
+          "run",
+          "word_mcp_server.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/Office-Word-MCP-Server",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/bytedance",
+          "LOGNAME": "bytedance",
+          "PATH": "/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Users/bytedance/Downloads/Visual Studio Code.app/Contents/Resources/app/bin/",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "bytedance"
+        },
+        "serverInfo": {
+          "name": "word-document-server",
+          "version": "1.6.0"
+        },
+        "filePath": "{workspace}/my-browser/dist/index.js",
+        "name": "word-document-server",
+        "version": "1.6.0"
+      }
+    ],
     {
-      "type": "stdio",
       "name": "BlenderMCP",
       "version": "1.5.0",
       "command": "mcp",
@@ -37,10 +134,11 @@
         "TERM": "xterm-256color",
         "USER": "bytedance"
       },
-      "filePath": "{workspace}/blender-mcp/src/blender_mcp/server.py"
+      "filePath": "{workspace}/blender-mcp/src/blender_mcp/server.py",
+      "connectionType": "STDIO",
+      "commandString": "mcp run blender-mcp/src/blender_mcp/server.py"
     },
     {
-      "type": "stdio",
       "name": "image_crawler",
       "version": "1.5.0",
       "command": "mcp",
@@ -57,30 +155,10 @@
         "TERM": "xterm-256color",
         "USER": "bytedance"
       },
-      "filePath": "{workspace}/bing-images/main.py"
+      "filePath": "{workspace}/bing-images/main.py",
+      "connectionType": "STDIO"
     },
     {
-      "type": "stdio",
-      "name": "锦恢的 MCP Server",
-      "version": "1.5.0",
-      "command": "mcp",
-      "args": [
-        "run",
-        "simple-mcp/main.py"
-      ],
-      "cwd": "{workspace}",
-      "env": {
-        "HOME": "/Users/bytedance",
-        "LOGNAME": "bytedance",
-        "PATH": "/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Users/bytedance/Downloads/Visual Studio Code.app/Contents/Resources/app/bin/:/Applications/Trae CN.app/Contents/Resources/app/bin/lib",
-        "SHELL": "/bin/zsh",
-        "TERM": "xterm-256color",
-        "USER": "bytedance"
-      },
-      "filePath": "{workspace}/simple-mcp/main.py"
-    },
-    {
-      "type": "stdio",
       "name": "example-servers/puppeteer",
       "version": "0.1.0",
       "command": "node",
@@ -96,7 +174,8 @@
         "TERM": "xterm-256color",
         "USER": "bytedance"
       },
-      "filePath": "/Users/bytedance/projects/mcp/servers/src/puppeteer/dist/index.js"
+      "filePath": "/Users/bytedance/projects/mcp/servers/src/puppeteer/dist/index.js",
+      "connectionType": "STDIO"
     }
   ]
 }

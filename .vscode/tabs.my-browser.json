@@ -1,4 +1,5 @@
 {
+  "clientId": "84f8889b-889b-58889b7fffb-88889b7fffb97d9-b97d93a1",
   "currentIndex": 1,
   "tabs": [
     {
@@ -12,7 +13,10 @@
           "launchOptions": {},
           "allowDangerous": false
         },
-        "currentToolName": "k_navigate"
+        "currentToolName": "k_navigate",
+        "activeNames": [
+          0
+        ]
       }
     },
     {
@@ -119,41 +123,1037 @@
             {
               "name": "k_navigate",
               "description": "Navigate to a URL",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "description": "URL to navigate to"
+                  },
+                  "launchOptions": {
+                    "type": "object",
+                    "description": "PuppeteerJS LaunchOptions. Default null. If changed and not null, browser restarts. Example: { headless: true, args: ['--no-sandbox'] }"
+                  },
+                  "allowDangerous": {
+                    "type": "boolean",
+                    "description": "Allow dangerous LaunchOptions that reduce security. When false, dangerous args like --no-sandbox will throw errors. Default false."
+                  }
+                },
+                "required": [
+                  "url"
+                ]
+              },
               "enabled": true
             },
             {
               "name": "k_screenshot",
               "description": "Take a screenshot of the current page or a specific element",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name for the screenshot"
+                  },
+                  "selector": {
+                    "type": "string",
+                    "description": "CSS selector for element to screenshot"
+                  },
+                  "width": {
+                    "type": "number",
+                    "description": "Width in pixels (default: 800)"
+                  },
+                  "height": {
+                    "type": "number",
+                    "description": "Height in pixels (default: 600)"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
               "enabled": true
             },
             {
               "name": "k_click",
               "description": "Click an element on the page",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "selector": {
+                    "type": "string",
+                    "description": "CSS selector for element to click"
+                  }
+                },
+                "required": [
+                  "selector"
+                ]
+              },
               "enabled": true
             },
             {
               "name": "k_fill",
               "description": "Fill out an input field",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "selector": {
+                    "type": "string",
+                    "description": "CSS selector for input field"
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "Value to fill"
+                  }
+                },
+                "required": [
+                  "selector",
+                  "value"
+                ]
+              },
               "enabled": true
             },
             {
               "name": "k_select",
               "description": "Select an element on the page with Select tag",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "selector": {
+                    "type": "string",
+                    "description": "CSS selector for element to select"
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "Value to select"
+                  }
+                },
+                "required": [
+                  "selector",
+                  "value"
+                ]
+              },
               "enabled": true
             },
             {
               "name": "k_hover",
               "description": "Hover an element on the page",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "selector": {
+                    "type": "string",
+                    "description": "CSS selector for element to hover"
+                  }
+                },
+                "required": [
+                  "selector"
+                ]
+              },
               "enabled": true
             },
             {
               "name": "k_evaluate",
               "description": "Execute JavaScript in the browser console",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "script": {
+                    "type": "string",
+                    "description": "JavaScript code to execute"
+                  }
+                },
+                "required": [
+                  "script"
+                ]
+              },
               "enabled": true
             },
             {
               "name": "k_get_full_page_text",
               "description": "获取页面所有文本内容",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "enabled": true
+            },
+            {
+              "name": "create_document",
+              "description": "Create a new Word document with optional metadata.\n\nArgs:\n    filename: Name of the document to create (with or without .docx extension)\n    title: Optional title for the document metadata\n    author: Optional author for the document metadata\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "title": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Title"
+                  },
+                  "author": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Author"
+                  }
+                },
+                "required": [
+                  "filename"
+                ],
+                "title": "create_documentArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "copy_document",
+              "description": "Create a copy of a Word document.\n\nArgs:\n    source_filename: Path to the source document\n    destination_filename: Optional path for the copy. If not provided, a default name will be generated.\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "source_filename": {
+                    "title": "Source Filename",
+                    "type": "string"
+                  },
+                  "destination_filename": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Destination Filename"
+                  }
+                },
+                "required": [
+                  "source_filename"
+                ],
+                "title": "copy_documentArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "get_document_info",
+              "description": "Get information about a Word document.\n\nArgs:\n    filename: Path to the Word document\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "filename"
+                ],
+                "title": "get_document_infoArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "get_document_text",
+              "description": "Extract all text from a Word document.\n\nArgs:\n    filename: Path to the Word document\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "filename"
+                ],
+                "title": "get_document_textArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "get_document_outline",
+              "description": "Get the structure of a Word document.\n\nArgs:\n    filename: Path to the Word document\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "filename"
+                ],
+                "title": "get_document_outlineArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "list_available_documents",
+              "description": "List all .docx files in the specified directory.\n\nArgs:\n    directory: Directory to search for Word documents\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "directory": {
+                    "default": ".",
+                    "title": "Directory",
+                    "type": "string"
+                  }
+                },
+                "title": "list_available_documentsArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "add_paragraph",
+              "description": "Add a paragraph to a Word document.\n\nArgs:\n    filename: Path to the Word document\n    text: Paragraph text\n    style: Optional paragraph style name\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "text": {
+                    "title": "Text",
+                    "type": "string"
+                  },
+                  "style": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Style"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "text"
+                ],
+                "title": "add_paragraphArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "add_heading",
+              "description": "Add a heading to a Word document.\n\nArgs:\n    filename: Path to the Word document\n    text: Heading text\n    level: Heading level (1-9, where 1 is the highest level)\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "text": {
+                    "title": "Text",
+                    "type": "string"
+                  },
+                  "level": {
+                    "default": 1,
+                    "title": "Level",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "text"
+                ],
+                "title": "add_headingArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "add_picture",
+              "description": "Add an image to a Word document.\n\nArgs:\n    filename: Path to the Word document\n    image_path: Path to the image file\n    width: Optional width in inches (proportional scaling)\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "image_path": {
+                    "title": "Image Path",
+                    "type": "string"
+                  },
+                  "width": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Width"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "image_path"
+                ],
+                "title": "add_pictureArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "add_table",
+              "description": "Add a table to a Word document.\n\nArgs:\n    filename: Path to the Word document\n    rows: Number of rows in the table\n    cols: Number of columns in the table\n    data: Optional 2D array of data to fill the table\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "rows": {
+                    "title": "Rows",
+                    "type": "integer"
+                  },
+                  "cols": {
+                    "title": "Cols",
+                    "type": "integer"
+                  },
+                  "data": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Data"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "rows",
+                  "cols"
+                ],
+                "title": "add_tableArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "add_page_break",
+              "description": "Add a page break to the document.\n\nArgs:\n    filename: Path to the Word document\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "filename"
+                ],
+                "title": "add_page_breakArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "delete_paragraph",
+              "description": "Delete a paragraph from a document.\n\nArgs:\n    filename: Path to the Word document\n    paragraph_index: Index of the paragraph to delete (0-based)\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "paragraph_index": {
+                    "title": "Paragraph Index",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "paragraph_index"
+                ],
+                "title": "delete_paragraphArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "search_and_replace",
+              "description": "Search for text and replace all occurrences.\n\nArgs:\n    filename: Path to the Word document\n    find_text: Text to search for\n    replace_text: Text to replace with\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "find_text": {
+                    "title": "Find Text",
+                    "type": "string"
+                  },
+                  "replace_text": {
+                    "title": "Replace Text",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "find_text",
+                  "replace_text"
+                ],
+                "title": "search_and_replaceArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "create_custom_style",
+              "description": "Create a custom style in the document.\n\nArgs:\n    filename: Path to the Word document\n    style_name: Name for the new style\n    bold: Set text bold (True/False)\n    italic: Set text italic (True/False)\n    font_size: Font size in points\n    font_name: Font name/family\n    color: Text color (e.g., 'red', 'blue')\n    base_style: Optional existing style to base this on\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "style_name": {
+                    "title": "Style Name",
+                    "type": "string"
+                  },
+                  "bold": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Bold"
+                  },
+                  "italic": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Italic"
+                  },
+                  "font_size": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Font Size"
+                  },
+                  "font_name": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Font Name"
+                  },
+                  "color": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Color"
+                  },
+                  "base_style": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Base Style"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "style_name"
+                ],
+                "title": "create_custom_styleArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "format_text",
+              "description": "Format a specific range of text within a paragraph.\n\nArgs:\n    filename: Path to the Word document\n    paragraph_index: Index of the paragraph (0-based)\n    start_pos: Start position within the paragraph text\n    end_pos: End position within the paragraph text\n    bold: Set text bold (True/False)\n    italic: Set text italic (True/False)\n    underline: Set text underlined (True/False)\n    color: Text color (e.g., 'red', 'blue', etc.)\n    font_size: Font size in points\n    font_name: Font name/family\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "paragraph_index": {
+                    "title": "Paragraph Index",
+                    "type": "integer"
+                  },
+                  "start_pos": {
+                    "title": "Start Pos",
+                    "type": "integer"
+                  },
+                  "end_pos": {
+                    "title": "End Pos",
+                    "type": "integer"
+                  },
+                  "bold": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Bold"
+                  },
+                  "italic": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Italic"
+                  },
+                  "underline": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Underline"
+                  },
+                  "color": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Color"
+                  },
+                  "font_size": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Font Size"
+                  },
+                  "font_name": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Font Name"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "paragraph_index",
+                  "start_pos",
+                  "end_pos"
+                ],
+                "title": "format_textArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "format_table",
+              "description": "Format a table with borders, shading, and structure.\n\nArgs:\n    filename: Path to the Word document\n    table_index: Index of the table (0-based)\n    has_header_row: If True, formats the first row as a header\n    border_style: Style for borders ('none', 'single', 'double', 'thick')\n    shading: 2D list of cell background colors (by row and column)\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "table_index": {
+                    "title": "Table Index",
+                    "type": "integer"
+                  },
+                  "has_header_row": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Has Header Row"
+                  },
+                  "border_style": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Border Style"
+                  },
+                  "shading": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Shading"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "table_index"
+                ],
+                "title": "format_tableArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "protect_document",
+              "description": "Add password protection to a Word document.\n\nArgs:\n    filename: Path to the Word document\n    password: Password to protect the document with\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "password": {
+                    "title": "Password",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "password"
+                ],
+                "title": "protect_documentArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "unprotect_document",
+              "description": "Remove password protection from a Word document.\n\nArgs:\n    filename: Path to the Word document\n    password: Password that was used to protect the document\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "password": {
+                    "title": "Password",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "password"
+                ],
+                "title": "unprotect_documentArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "add_footnote_to_document",
+              "description": "Add a footnote to a specific paragraph in a Word document.\n\nArgs:\n    filename: Path to the Word document\n    paragraph_index: Index of the paragraph to add footnote to (0-based)\n    footnote_text: Text content of the footnote\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "paragraph_index": {
+                    "title": "Paragraph Index",
+                    "type": "integer"
+                  },
+                  "footnote_text": {
+                    "title": "Footnote Text",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "paragraph_index",
+                  "footnote_text"
+                ],
+                "title": "add_footnote_to_documentArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "add_endnote_to_document",
+              "description": "Add an endnote to a specific paragraph in a Word document.\n\nArgs:\n    filename: Path to the Word document\n    paragraph_index: Index of the paragraph to add endnote to (0-based)\n    endnote_text: Text content of the endnote\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "paragraph_index": {
+                    "title": "Paragraph Index",
+                    "type": "integer"
+                  },
+                  "endnote_text": {
+                    "title": "Endnote Text",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "paragraph_index",
+                  "endnote_text"
+                ],
+                "title": "add_endnote_to_documentArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "convert_footnotes_to_endnotes_in_document",
+              "description": "Convert all footnotes to endnotes in a Word document.\n\nArgs:\n    filename: Path to the Word document\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "filename"
+                ],
+                "title": "convert_footnotes_to_endnotes_in_documentArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "customize_footnote_style",
+              "description": "Customize footnote numbering and formatting in a Word document.\n\nArgs:\n    filename: Path to the Word document\n    numbering_format: Format for footnote numbers (e.g., \"1, 2, 3\", \"i, ii, iii\", \"a, b, c\")\n    start_number: Number to start footnote numbering from\n    font_name: Optional font name for footnotes\n    font_size: Optional font size for footnotes (in points)\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "numbering_format": {
+                    "default": "1, 2, 3",
+                    "title": "Numbering Format",
+                    "type": "string"
+                  },
+                  "start_number": {
+                    "default": 1,
+                    "title": "Start Number",
+                    "type": "integer"
+                  },
+                  "font_name": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Font Name"
+                  },
+                  "font_size": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Font Size"
+                  }
+                },
+                "required": [
+                  "filename"
+                ],
+                "title": "customize_footnote_styleArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "get_paragraph_text_from_document",
+              "description": "Get text from a specific paragraph in a Word document.\n\nArgs:\n    filename: Path to the Word document\n    paragraph_index: Index of the paragraph to retrieve (0-based)\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "paragraph_index": {
+                    "title": "Paragraph Index",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "paragraph_index"
+                ],
+                "title": "get_paragraph_text_from_documentArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "find_text_in_document",
+              "description": "Find occurrences of specific text in a Word document.\n\nArgs:\n    filename: Path to the Word document\n    text_to_find: Text to search for in the document\n    match_case: Whether to match case (True) or ignore case (False)\n    whole_word: Whether to match whole words only (True) or substrings (False)\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "text_to_find": {
+                    "title": "Text To Find",
+                    "type": "string"
+                  },
+                  "match_case": {
+                    "default": true,
+                    "title": "Match Case",
+                    "type": "boolean"
+                  },
+                  "whole_word": {
+                    "default": false,
+                    "title": "Whole Word",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "text_to_find"
+                ],
+                "title": "find_text_in_documentArguments"
+              },
+              "enabled": true
+            },
+            {
+              "name": "convert_to_pdf",
+              "description": "Convert a Word document to PDF format.\n\nArgs:\n    filename: Path to the Word document\n    output_filename: Optional path for the output PDF. If not provided, \n                     will use the same name with .pdf extension\n",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "title": "Filename",
+                    "type": "string"
+                  },
+                  "output_filename": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Output Filename"
+                  }
+                },
+                "required": [
+                  "filename"
+                ],
+                "title": "convert_to_pdfArguments"
+              },
               "enabled": true
             }
           ],
@@ -163,13 +1163,6 @@
           "systemPrompt": ""
         }
       }
-    },
-    {
-      "name": "空白测试 2",
-      "icon": "icon-blank",
-      "type": "blank",
-      "componentIndex": -1,
-      "storage": {}
     }
   ]
 }
