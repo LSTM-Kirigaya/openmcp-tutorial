@@ -14,12 +14,12 @@
         "clientName": "openmcp.connect.STDIO",
         "clientVersion": "0.0.1",
         "env": {
-          "HOME": "/Users/bytedance",
-          "LOGNAME": "bytedance",
-          "PATH": "/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Users/bytedance/Downloads/Visual Studio Code.app/Contents/Resources/app/bin/:/Applications/Trae CN.app/Contents/Resources/app/bin/lib",
-          "SHELL": "/bin/zsh",
-          "TERM": "xterm-256color",
-          "USER": "bytedance"
+          "HOME": "/home/kirigaya",
+          "LOGNAME": "kirigaya",
+          "PATH": "/home/kirigaya/.trae-cn-server/bin/stable-06ec9c9bc3286790754d84e1f70a2da5c85a6585/bin/remote-cli:/home/kirigaya/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/kirigaya/.dotnet/tools",
+          "SHELL": "/bin/bash",
+          "TERM": "",
+          "USER": "kirigaya"
         },
         "serverInfo": {
           "name": "crawl4ai-mcp",
