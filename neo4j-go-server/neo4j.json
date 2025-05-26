@@ -1,0 +1,5 @@
+{
+    "url" : "neo4j://localhost:7687",
+    "name" : "neo4j",
+    "password" : "openmcp"
+}
