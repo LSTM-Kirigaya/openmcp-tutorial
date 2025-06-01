@@ -4,7 +4,13 @@ from typing import Optional, Union, List, NamedTuple
 import requests
 import json
 
-mcp = FastMCP('锦恢的 MCP Server', version="11.45.14")
+mcp = FastMCP(
+    '锦恢的 MCP Server',
+    version="11.45.14",
+    host = "127.0.0.1",
+    port = 8000,
+    streamable_http_path = "/mcp"
+)
 
 @mcp.resource(
     uri="greeting://{name}",
@@ -103,3 +109,7 @@ def get_weather_by_code(city_code: int) -> str:
     """模拟天气查询协议，返回格式化字符串"""
     city_weather = get_city_weather_by_city_name(city_code)
     return str(city_weather)
+
+
+if __name__ == '__main__':
+    mcp.run(transport='streamable-http')

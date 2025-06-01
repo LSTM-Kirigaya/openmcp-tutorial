@@ -159,7 +159,7 @@ wheels = [
 
 [[package]]
 name = "mcp"
-version = "1.7.0"
+version = "1.9.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
@@ -172,9 +172,9 @@ dependencies = [
     { name = "starlette" },
     { name = "uvicorn", marker = "sys_platform != 'emscripten'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c8/b7/0bf3c75ddedbc744f872c34801b9c6c8930fe1134212c45e25029f0b83df/mcp-1.7.0.tar.gz", hash = "sha256:8b955eddf5fbb09613c4d517956745d932db9f757673200112b336bd8092509f", size = 229504 }
+sdist = { url = "https://files.pythonhosted.org/packages/ea/03/77c49cce3ace96e6787af624611b627b2828f0dca0f8df6f330a10eea51e/mcp-1.9.2.tar.gz", hash = "sha256:3c7651c053d635fd235990a12e84509fe32780cd359a5bbef352e20d4d963c05", size = 333066 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f7/09/943fa9dc1e9751c2e7302205112801d0bb6a12050e21f0945486748f9ff3/mcp-1.7.0-py3-none-any.whl", hash = "sha256:0e874a587f542211f36f87b02c9acd6ad2534976fb2c36ff794d8b2bc0a91915", size = 100192 },
+    { url = "https://files.pythonhosted.org/packages/5d/a6/8f5ee9da9f67c0fd8933f63d6105f02eabdac8a8c0926728368ffbb6744d/mcp-1.9.2-py3-none-any.whl", hash = "sha256:bc29f7fd67d157fef378f89a4210384f5fecf1168d0feb12d22929818723f978", size = 131083 },
 ]
 
 [package.optional-dependencies]
@@ -333,12 +333,14 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "mcp", extra = ["cli"] },
+    { name = "pydantic" },
     { name = "requests" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "mcp", extras = ["cli"], specifier = ">=1.7.0" },
+    { name = "mcp", extras = ["cli"], specifier = ">=1.9.2" },
+    { name = "pydantic", specifier = ">=2.11.4" },
     { name = "requests", specifier = ">=2.32.3" },
 ]
 
