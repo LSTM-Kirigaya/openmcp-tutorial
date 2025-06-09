@@ -5,7 +5,7 @@ from crawl4ai.async_configs import BrowserConfig
 mcp = FastMCP("crawl4ai-mcp")
 
 # Using proxy URL
-browser_config = BrowserConfig(proxy="http://127.0.0.1:7890")
+browser_config = BrowserConfig()
 
 @mcp.tool(
     name='get_web_markdown',

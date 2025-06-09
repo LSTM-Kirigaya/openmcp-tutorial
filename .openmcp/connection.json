@@ -1,0 +1,61 @@
+{
+  "items": [
+    [
+      {
+        "connectionType": "SSE",
+        "command": "",
+        "args": [],
+        "url": "http://localhost:8083/sse",
+        "cwd": "",
+        "oauth": "",
+        "clientName": "openmcp.connect.SSE",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/bytedance",
+          "LOGNAME": "bytedance",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/bytedance/Downloads/neo4j-community-4.4.44/bin:/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Users/bytedance/Downloads/Visual Studio Code.app/Contents/Resources/app/bin/",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "bytedance"
+        },
+        "serverInfo": {
+          "name": "只读 Neo4j 服务器",
+          "version": "0.0.1"
+        },
+        "filePath": "SSE-1749284638459",
+        "name": "只读 Neo4j 服务器",
+        "version": "0.0.1"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/simple-mcp",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/bytedance",
+          "LOGNAME": "bytedance",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/bytedance/Downloads/neo4j-community-4.4.44/bin:/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Users/bytedance/Downloads/Visual Studio Code.app/Contents/Resources/app/bin/",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "bytedance"
+        },
+        "serverInfo": {
+          "name": "锦恢的 MCP Server",
+          "version": "1.9.2"
+        },
+        "filePath": "{workspace}/simple-mcp/main.py",
+        "name": "锦恢的 MCP Server",
+        "version": "1.9.2"
+      }
+    ]
+  ]
+}

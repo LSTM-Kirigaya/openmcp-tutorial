@@ -10,7 +10,7 @@ import (
 
 var (
 	neo4jPath string = "./neo4j.json"
-	addr string = "localhost:8083"
+	addr      string = "localhost:8083"
 )
 
 func main() {
@@ -64,7 +64,17 @@ func main() {
 
 	// 注册对应的工具到 schema 上
 	s.AddTool(executeReadOnlyCypherQuery, func(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
-		cypher := request.Params.Arguments["cypher"].(string)
+		// 先将 request.Params.Arguments 转换为 map[string]interface{} 类型，再进行索引操作
+		args, ok := request.Params.Arguments.(map[string]interface{})
+		if !ok {
+			// 处理转换失败的情况
+			return mcp.NewToolResultText(""), fmt.Errorf("request.Params.Arguments 无法转换为 map[string]interface{} 类型")
+		}
+		cypher, ok := args["cypher"].(string)
+		if !ok {
+			// 处理 cypher 不是字符串类型的情况
+			return mcp.NewToolResultText(""), fmt.Errorf("cypher 不是字符串类型")
+		}
 		result, err := util.ExecuteReadOnlyCypherQuery(cypher)
 
 		fmt.Println(result)
@@ -76,16 +86,15 @@ func main() {
 		return mcp.NewToolResultText(fmt.Sprintf("%v", result)), nil
 	})
 
-
 	s.AddTool(getAllNodeTypes, func(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
 		result, err := util.GetAllNodeTypes()
 
 		fmt.Println(result)
-		
+
 		if err != nil {
 			return mcp.NewToolResultText(""), err
 		}
-		
+
 		return mcp.NewToolResultText(fmt.Sprintf("%v", result)), nil
 	})
 
@@ -93,7 +102,7 @@ func main() {
 		result, err := util.GetAllRelationshipTypes()
 		fmt.Println(result)
 
-		if err!= nil {
+		if err != nil {
 			return mcp.NewToolResultText(""), err
 		}
 
@@ -101,18 +110,27 @@ func main() {
 	})
 
 	s.AddTool(getNodeField, func(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
-		nodeLabel := request.Params.Arguments["nodeLabel"].(string)
+		// 先将 request.Params.Arguments 转换为 map[string]interface{} 类型，再进行索引操作
+		args, ok := request.Params.Arguments.(map[string]interface{})
+		if !ok {
+			// 处理转换失败的情况
+			return mcp.NewToolResultText(""), fmt.Errorf("request.Params.Arguments 无法转换为 map[string]interface{} 类型")
+		}
+		nodeLabel, ok := args["nodeLabel"].(string)
+		if !ok {
+			// 处理 nodeLabel 不是字符串类型的情况
+			return mcp.NewToolResultText(""), fmt.Errorf("nodeLabel 不是字符串类型")
+		}
 		result, err := util.GetNodeFields(nodeLabel)
-		
+
 		fmt.Println(result)
-		
-		if err!= nil {
+
+		if err != nil {
 			return mcp.NewToolResultText(""), err
 		}
-		
+
 		return mcp.NewToolResultText(fmt.Sprintf("%v", result)), nil
 	})
-
 
 	fmt.Printf("Server started at http://%s/sse\n", addr)
 	srv.Start(addr)
