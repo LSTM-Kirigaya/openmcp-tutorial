@@ -2,6 +2,124 @@
   "items": [
     [
       {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/crawl4ai-mcp",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/bytedance",
+          "LOGNAME": "bytedance",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/bytedance/Downloads/neo4j-community-4.4.44/bin:/Users/bytedance/.local/bin:/opt/homebrew/opt/openjdk@11/bin:/Users/bytedance/Downloads/neo4j-community-4.4.44/bin:/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin/:/Applications/Trae CN.app/Contents/Resources/app/bin/lib",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "bytedance"
+        },
+        "serverInfo": {
+          "name": "crawl4ai-mcp",
+          "version": "1.9.1"
+        },
+        "filePath": "{workspace}/crawl4ai-mcp/main.py",
+        "name": "crawl4ai-mcp",
+        "version": "1.9.1"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "npx",
+        "args": [
+          "-y",
+          "openmemory"
+        ],
+        "url": "",
+        "cwd": "",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/bytedance",
+          "LOGNAME": "bytedance",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/bytedance/Downloads/neo4j-community-4.4.44/bin:/Users/bytedance/.local/bin:/opt/homebrew/opt/openjdk@11/bin:/Users/bytedance/Downloads/neo4j-community-4.4.44/bin:/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin/:/Applications/Trae CN.app/Contents/Resources/app/bin/lib",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "bytedance"
+        },
+        "serverInfo": {
+          "name": "openmemory",
+          "version": "0.0.1"
+        },
+        "filePath": "STDIO-1749923845046",
+        "name": "openmemory",
+        "version": "0.0.1"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/bing-images",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/bytedance",
+          "LOGNAME": "bytedance",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/bytedance/Downloads/neo4j-community-4.4.44/bin:/Users/bytedance/.local/bin:/opt/homebrew/opt/openjdk@11/bin:/Users/bytedance/Downloads/neo4j-community-4.4.44/bin:/Users/bytedance/.local/bin:/opt/homebrew/opt/openjdk@11/bin:/Users/bytedance/Downloads/neo4j-community-4.4.44/bin:/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Users/bytedance/Downloads/Visual Studio Code.app/Contents/Resources/app/bin:/Users/bytedance/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin/",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "bytedance"
+        },
+        "serverInfo": {
+          "name": "image_crawler",
+          "version": "1.7.0"
+        },
+        "filePath": "{workspace}/bing-images/main.py",
+        "name": "image_crawler",
+        "version": "1.7.0"
+      },
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/simple-mcp",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/bytedance",
+          "LOGNAME": "bytedance",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/bytedance/Downloads/neo4j-community-4.4.44/bin:/Users/bytedance/.local/bin:/opt/homebrew/opt/openjdk@11/bin:/Users/bytedance/Downloads/neo4j-community-4.4.44/bin:/Users/bytedance/.local/bin:/opt/homebrew/opt/openjdk@11/bin:/Users/bytedance/Downloads/neo4j-community-4.4.44/bin:/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Users/bytedance/Downloads/Visual Studio Code.app/Contents/Resources/app/bin:/Users/bytedance/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin/",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "bytedance"
+        },
+        "serverInfo": {
+          "name": "SimpleMcpServer",
+          "version": "1.9.2"
+        },
+        "filePath": "{workspace}/bing-images/main.py",
+        "name": "SimpleMcpServer",
+        "version": "1.9.2"
+      }
+    ],
+    [
+      {
         "connectionType": "SSE",
         "command": "",
         "args": [],
@@ -13,7 +131,7 @@
         "env": {
           "HOME": "/Users/bytedance",
           "LOGNAME": "bytedance",
-          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/bytedance/Downloads/neo4j-community-4.4.44/bin:/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Users/bytedance/Downloads/Visual Studio Code.app/Contents/Resources/app/bin/",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/bytedance/Downloads/neo4j-community-4.4.44/bin:/Users/bytedance/.local/bin:/Users/bytedance/.nvm/versions/node/v22.14.0/bin:/Users/bytedance/miniconda3/bin:/Users/bytedance/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/puppetlabs/bin:/Users/bytedance/.cargo/bin:/Users/bytedance/Downloads/Visual Studio Code.app/Contents/Resources/app/bin/:/Applications/Trae CN.app/Contents/Resources/app/bin/lib",
           "SHELL": "/bin/zsh",
           "TERM": "xterm-256color",
           "USER": "bytedance"
@@ -22,7 +140,7 @@
           "name": "只读 Neo4j 服务器",
           "version": "0.0.1"
         },
-        "filePath": "SSE-1749284638459",
+        "filePath": "SSE-1749821061863",
         "name": "只读 Neo4j 服务器",
         "version": "0.0.1"
       }
@@ -49,12 +167,25 @@
           "USER": "bytedance"
         },
         "serverInfo": {
-          "name": "锦恢的 MCP Server",
+          "name": "SimpleMcpServer",
           "version": "1.9.2"
         },
         "filePath": "{workspace}/simple-mcp/main.py",
-        "name": "锦恢的 MCP Server",
+        "name": "SimpleMcpServer",
         "version": "1.9.2"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "name": "STDIO-1749923845046",
+        "command": "npx",
+        "args": [
+          "-y",
+          "openmemory"
+        ],
+        "cwd": "",
+        "commandString": "npx -y openmemory"
       }
     ]
   ]
