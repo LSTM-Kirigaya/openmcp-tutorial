@@ -3,7 +3,7 @@ module neo4j-go-server
 go 1.24.1
 
 require (
-	github.com/mark3labs/mcp-go v0.27.1
+	github.com/mark3labs/mcp-go v0.31.0
 	github.com/neo4j/neo4j-go-driver/v5 v5.28.1
 )
 

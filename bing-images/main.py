@@ -62,13 +62,12 @@ mcp = FastMCP('image_crawler', version="0.0.1")
 
 @mcp.tool(
     name='image_crawler',
-    description='根据关键词从指定搜索引擎爬取图片'
+    description='search images according to key words via Bing Image'
 )
 def image_crawler_tool(key_word: str, image_num: int) -> str:
-    """图片爬取工具，返回格式化字符串"""
     images = bing_crawler(key_word, image_num)
     return str(images)
 
 if __name__ == "__main__":
-    images = bing_crawler("明日方舟 m3", 5)
+    images = bing_crawler("arknights m3", 5)
     print(images)

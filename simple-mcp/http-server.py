@@ -4,35 +4,41 @@ from typing import Optional, Union, List, NamedTuple
 import requests
 import json
 
-mcp = FastMCP('SimpleMcpServer', version="11.45.14")
+mcp = FastMCP(
+    '锦恢的 MCP Server',
+    version="11.45.14",
+    host = "127.0.0.1",
+    port = 8000,
+    streamable_http_path = "/mcp"
+)
 
 @mcp.resource(
     uri="greeting://{name}",
     name='greeting',
-    description='A resource protocol for demonstration'
+    description='用于演示的一个资源协议'
 )
-def get_greeting(name: str) -> str: 
-    # Handle greeting://{name} resource access protocol and return
-    # For simplicity, directly return "Hello, balabala"
+def get_greeting(name: str) -> str:
+    # 访问处理 greeting://{name} 资源访问协议，然后返回
+    # 此处方便起见，直接返回一个 Hello，balabala 了
     return f"Hello, {name}!"
 
 @mcp.prompt(
     name='translate',
-    description='Prompt for translation'
+    description='进行翻译的prompt'
 )
 def translate(message: str) -> str:
-    return f'Please translate the following text to Chinese:\n\n{message}'
+    return f'请将下面的话语翻译成中文：\n\n{message}'
 
 class PathParams(BaseModel):
     start: str
     end: str
 
-@mcp.tool(name="test", description="Used for testing")
+@mcp.tool(name="test",description="用来测试")
 def test(
     params: PathParams,
     test1: str,
-    test2: Union[str, List[str]] = Field("", description="Test parameter 2"),
-    test3: Optional[str] = Field(None, description="Test parameter 3")
+    test2: Union[str, List[str]] = Field("", description="测试参数2"),
+    test3: Optional[str] = Field(None, description="测试参数3")
 ):
     return [test1, test2, test3, params]
 
@@ -42,43 +48,43 @@ class CityWeather(NamedTuple):
     city_name_cn: str
     city_code: str
     temp: str
-    wd: str  # wind direction
-    ws: str  # wind speed
-    sd: str  # humidity
-    aqi: str # air quality index
+    wd: str
+    ws: str
+    sd: str
+    aqi: str
     weather: str
 
 def get_city_weather_by_city_name(city_code: str) -> Optional[CityWeather]:
-    """Get weather information by city code"""
+    """根据城市名获取天气信息"""
 
     if not city_code:
-        print(f"Cannot find city corresponding to {city_code}")
+        print(f"找不到{city_code}对应的城市")
         return None
 
     try:
-        # Construct request URL
+        # 构造请求URL
         url = f"http://d1.weather.com.cn/sk_2d/{city_code}.html"
 
-        # Set request headers
+        # 设置请求头
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.0.0",
             "Host": "d1.weather.com.cn",
             "Referer": "http://www.weather.com.cn/"
         }
 
-        # Send HTTP request
+        # 发送HTTP请求
         response = requests.get(url, headers=headers)
         response.raise_for_status()
 
-        # Parse JSON data
-        # Handle encoding issues before parsing JSON
+        # 解析JSON数据
+        # 解析JSON数据前先处理编码问题
         content = response.text.encode('latin1').decode('unicode_escape')
         json_start = content.find("{")
         json_str = content[json_start:]
 
         weather_data = json.loads(json_str)
 
-        # Construct return object
+        # 构造返回对象
         return CityWeather(
             city_name_en=weather_data.get("nameen", ""),
             city_name_cn=weather_data.get("cityname", "").encode('latin1').decode('utf-8'),
@@ -92,14 +98,18 @@ def get_city_weather_by_city_name(city_code: str) -> Optional[CityWeather]:
         )
 
     except Exception as e:
-        print(f"Failed to get weather information: {str(e)}")
+        print(f"获取天气信息失败: {str(e)}")
         return None
 
 @mcp.tool(
     name='weather',
-    description='Get weather information for a city using its weather forecast city code (int)'
+    description='根据城市天气预报的城市编码 (int)，获取指定城市的天气信息'
 )
 def get_weather_by_code(city_code: int) -> str:
-    """Simulates weather query protocol, returns formatted string"""
+    """模拟天气查询协议，返回格式化字符串"""
     city_weather = get_city_weather_by_city_name(city_code)
     return str(city_weather)
+
+
+if __name__ == '__main__':
+    mcp.run(transport='streamable-http')
