@@ -41,3 +41,13 @@ async def get_hacknews(topn: int = 3) -> str:
 发布时间：[若存在]
 链接：[文章URL]
     '''
+
+
+@mcp.prompt(
+    name='summary-website',
+    description='总结网页内容'
+)
+async def get_hacknews(url: str) -> str:
+    return f'''
+你是一个擅长进行资讯聚合的机器人，请帮在通过获取网页内容后，理解主要关键的信息后，使用简体中文帮我总结下面给出的链接，一定要简明扼要：{url}
+    '''
