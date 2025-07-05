@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/lstm-kirigaya-openmcp-tutorial-badge.png)](https://mseep.ai/app/lstm-kirigaya-openmcp-tutorial)
+
 Demo for [OpenMCP](https://github.com/LSTM-Kirigaya/openmcp-client) Project.
 
 Maybe you can use the project structure to build the future ?
