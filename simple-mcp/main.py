@@ -103,3 +103,11 @@ def get_weather_by_code(city_code: int) -> str:
     """Simulates weather query protocol, returns formatted string"""
     city_weather = get_city_weather_by_city_name(city_code)
     return str(city_weather)
+
+@mcp.tool(
+    name='fixed_string',
+    description='Returns a fixed string'
+)
+def get_fixed_string() -> str:
+    """Returns a fixed demonstration string"""
+    return "This is a fixed string returned by the MCP tool"
