@@ -6,13 +6,24 @@ import json
 
 mcp = FastMCP('SimpleMcpServer', version="11.45.14")
 
+
+
 @mcp.resource(
     uri="greeting://{name}",
-    name='greeting',
     description='A resource protocol for demonstration'
 )
 def get_greeting(name: str) -> str: 
     # Handle greeting://{name} resource access protocol and return
+    # For simplicity, directly return "Hello, balabala"
+    return f"Hello, {name}!"
+
+
+@mcp.resource(
+    uri="get_book://{name}",
+    description='A resource protocol for demonstration'
+)
+def get_book(name: str) -> str: 
+    # Handle greeting://{name} resource access protocol and return,
     # For simplicity, directly return "Hello, balabala"
     return f"Hello, {name}!"
 
@@ -36,6 +47,19 @@ def test(
 ):
     return [test1, test2, test3, params]
 
+@mcp.tool(name="test_array", description="Used for testing")
+def test_array(
+    params: list[str],
+):
+    return [params]
+
+@mcp.tool(
+    name='markdown_echo',
+    description='Echoes the input as Markdown content'
+)
+def markdown_echo(title: str, content: str) -> str:
+    """Returns the input string wrapped as Markdown code block"""
+    return f"## {title}\n{content}"
 
 class CityWeather(NamedTuple):
     city_name_en: str

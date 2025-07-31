@@ -541,10 +541,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) =>
 
 async function runServer() {
 	const transport = new StdioServerTransport();
+    console.log('connect to stdio server');
 	await server.connect(transport);
 }
 
 runServer().catch(console.error);
+
+
 
 process.stdin.on("close", () => {
 	console.error("Puppeteer MCP Server closed");

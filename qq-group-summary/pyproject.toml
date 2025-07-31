@@ -1,10 +1,9 @@
 [project]
-name = "crawl4ai-mcp"
+name = "qq-group-summary"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
-    "crawl4ai>=0.6.3",
-    "mcp[cli]>=1.9.1",
+    "mcp>=1.12.2",
 ]

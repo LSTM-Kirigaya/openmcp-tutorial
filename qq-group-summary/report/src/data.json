@@ -1,0 +1,51 @@
+{
+  "version": "0.1.10",
+  "changelogs": [
+    "Fix issue #48: Correct the wrong boot path.",
+    "Support kimi's usage counting + support kimi's system prompt.",
+    "Implement parallel execution and pause functionality for openmcp tool testing. https://picx.zhimg.com/80/v2-4e09958d91dcf561c578294d8b6f3349_1440w.png",
+    "Revise the API speed test algorithm, splitting it into tps + queue time. https://picx.zhimg.com/80/v2-1cc3044a3ec3d5d21cb265dd67518ca0_1440w.png",
+    "The large model API speed test now supports custom prompts. https://picx.zhimg.com/80/v2-ff70af72254b82c11a941fe9cc29eeb8_1440w.png",
+    "Implement issue#49, tool module, debugging now supports markdown rendering echo. https://picx.zhimg.com/80/v2-5d708ccab00f33fdf63a656a0066bf23_1440w.png",
+    "Implement issue#54, right-click on the server list name to rename the server. https://picx.zhimg.com/80/v2-87c2a29abdd2dd56a4d18cc4a8b946ff_1440w.png",
+    "Fix some hot update issues related to resources and prompts.",
+    "Update the title of the tab created by vscode. https://picx.zhimg.com/80/v2-4d40c20f3eaa032573e4de58298c859f_1440w.png"
+  ],
+  "contributors": [
+    {
+      "username": "LSTM-Kirigaya",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/59416203?v=4",
+      "homeUrl": "https://github.com/LSTM-Kirigaya"
+    },
+    {
+      "username": "li1553770945",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/55867654?v=4",
+      "homeUrl": "https://github.com/li1553770945"
+    },
+    {
+      "username": "STUzhy",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/129645384?v=4",
+      "homeUrl": "https://github.com/STUzhy"
+    },
+    {
+      "username": "appli456",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/8943691?v=4",
+      "homeUrl": "https://github.com/appli456"
+    },
+    {
+      "username": "cybermanhao",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/37235140?v=4",
+      "homeUrl": "https://github.com/cybermanhao"
+    },
+    {
+      "username": "ArcStellar2025",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/115577936?v=4",
+      "homeUrl": "https://github.com/ArcStellar2025"
+    },
+    {
+      "username": "ZYD045692",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/206822796?v=4",
+      "homeUrl": "https://github.com/ZYD045692"
+    }
+  ]
+}
