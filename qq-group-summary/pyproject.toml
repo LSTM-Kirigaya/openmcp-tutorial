@@ -6,4 +6,5 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "mcp>=1.12.2",
+    "pyppeteer>=2.0.0",
 ]

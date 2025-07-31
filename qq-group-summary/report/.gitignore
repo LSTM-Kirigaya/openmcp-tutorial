@@ -28,4 +28,4 @@ coverage
 *.sw?
 
 *.tsbuildinfo
-./src/data.json
+./src/*.json
