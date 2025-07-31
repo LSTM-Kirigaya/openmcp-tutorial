@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import summarizeChat from '../summarize_chat.json'
+import summarizeUser from '../summarize_user.json'
+
+const userTitles = ref<Array<{ name: string, title: string, qq: number }>>([])
+const chatTopics = ref<Array<{ topic: string, contributors: string[], detail: string }>>([])
+
+onMounted(() => {
+    userTitles.value = summarizeUser.titles
+    chatTopics.value = summarizeChat.messages
+})
+</script>
+
 <template>
     <section class="qq-group-summary margin-bottom">
         <div class="summary-content">
@@ -36,20 +50,6 @@
         </div>
     </section>
 </template>
-
-<script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import summarizeChat from '../summarize_chat.json'
-import summarizeUser from '../summarize_user.json'
-
-const userTitles = ref<Array<{ name: string, title: string, qq: number }>>([])
-const chatTopics = ref<Array<{ topic: string, contributors: string[], detail: string }>>([])
-
-onMounted(() => {
-    userTitles.value = summarizeUser.params.titles
-    chatTopics.value = summarizeChat.params.messages
-})
-</script>
 
 <style scoped>
 

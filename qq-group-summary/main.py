@@ -8,7 +8,7 @@ import shutil
 
 from mcp.server.fastmcp import FastMCP
 from pyppeteer import launch
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 current_file_path = Path(__file__).resolve()
 current_dir_path = current_file_path.parent
@@ -100,6 +100,7 @@ def lead_summary() -> str:
 生成总结内容时，你需要严格遵守下面的几个准则：
 - 对于比较有价值的点，稍微用一两句话详细讲讲，比如不要生成 “锦恢和元可可简单讨论了Trae 对 MCP 的具体支持情况”，而是生成更加具体的讨论内容，让其他人只看这个消息就能知道讨论中有价值的，有营养的信息。
 - 对于其中的部分信息，你需要特意提到主题施加的主体是谁，是哪个群友做了什么事情，而不要直接生成和群友没有关系的语句。
+- 对于每一条总结，尽量讲清楚前因后果，以及话题的结论，是什么，为什么，怎么做，如果用户没有讲到细节，则可以不用这么做。
 
 群聊消息的一个例子如下：
 
@@ -142,24 +143,30 @@ def lead_summary() -> str:
 )
 def summarize_chat(params: SummarizeChatParams):
     data = params.model_dump_json(indent=2)
-    with open("summarize_chat.json", "w") as f:
+    json_path = (report_dir / "src" / "summarize_chat.json").as_posix()
+    with open(json_path, "w") as f:
         f.write(data)
 
+    return 'write to ' + json_path
 
 @mcp.tool(
     description='总结群友的聊天表现'
 )
 def summarize_user(params: SummarizeUserParams):
     data = params.model_dump_json(indent=2)
-    with open("summarize_user.json", "w") as f:
+    json_path = (report_dir / "src" / "summarize_user.json").as_posix()
+    with open(json_path, "w") as f:
         f.write(data)
 
+    return 'write to ' + json_path
 
 @mcp.tool(
     description='将信息导出为 pdf'
 )
 async def export_pdf(pdf_file_name: str):
     html = build_report()
+    if not pdf_file_name.endswith('.pdf'):
+        pdf_file_name += '.pdf'
     if html is not None:
         await html_to_pdf(html, pdf_file_name)
         return pdf_file_name
