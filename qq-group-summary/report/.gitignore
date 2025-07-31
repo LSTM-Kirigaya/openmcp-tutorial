@@ -28,4 +28,5 @@ coverage
 *.sw?
 
 *.tsbuildinfo
-./src/*.json
+summarize_chat.json
+summarize_user.json
