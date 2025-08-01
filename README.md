@@ -6,7 +6,8 @@
 
 <h1 align="center">OpenMCP Tutorial</h1>
 
-<div style="text-align: center;">
+
+<div style="display: flex; justify-content: center;">
 
 [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-green)](https://modelcontextprotocol.io)
 ![GitHub](https://img.shields.io/github/license/LSTM-Kirigaya/openmcp-tutorial)
