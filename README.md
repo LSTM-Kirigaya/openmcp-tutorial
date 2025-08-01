@@ -16,18 +16,16 @@
   A comprehensive collection of Model Context Protocol (MCP) server examples in multiple languages
 </p>
 
-## 📋 Table of Contents
+<p align="center">
+  <a href="https://kirigaya.cn/openmcp/zh/plugin-tutorial/examples/mcp-examples.html">📘 中文教程</a> •
+  <a href="https://kirigaya.cn/openmcp/plugin-tutorial/examples/mcp-examples.html">📘 English Tutorial</a>
+</p>
 
-- [Overview](#overview)
-- [What is MCP?](#what-is-mcp)
-- [Projects](#projects)
-  - [Python Examples](#python-examples)
-  - [TypeScript Examples](#typescript-examples)
-  - [Go Examples](#go-examples)
-- [Getting Started](#getting-started)
-- [How to Build MCP Servers in Different Languages](#how-to-build-mcp-servers-in-different-languages)
-- [Contributing](#contributing)
-- [License](#license)
+<p align="center">
+  <a href="https://openmcp.kirigaya.cn">📄 Document</a> •
+  <a href="https://qm.qq.com/cgi-bin/qm/qr?k=C6ZUTZvfqWoI12lWe7L93cWa1hUsuVT0&jump_from=webapi&authKey=McW6B1ogTPjPDrCyGttS890tMZGQ1KB3QLuG4aqVNRaYp4vlTSgf2c6dMcNjMuBD">QQ Group</a> •
+  <a href="https://discord.gg/SKTZRf6NzU">Discord</a>
+</p>
 
 ## Overview
 
@@ -35,110 +33,33 @@ This repository contains a collection of example implementations of Model Contex
 
 Whether you're new to MCP or looking to extend your AI applications with contextual data, these examples will help you get started quickly.
 
-## What is MCP?
-
-The Model Context Protocol (MCP) is an open standard that allows AI systems to securely connect to external data sources and tools through a standardized interface. 
-
-Key benefits of MCP:
-- 🔒 **Secure**: Provides a secure way for AI models to access external resources
-- 🌐 **Standardized**: Unified protocol for connecting to various data sources and tools
-- ⚡ **Efficient**: Eliminates the need for custom integrations for each data source
-- 🛠️ **Extensible**: Easy to build custom servers for specific use cases
-
-MCP enables AI applications to:
-- Access local files and databases
-- Interact with web services and APIs
-- Execute tools and commands
-- Retrieve real-time information
-
-## Projects
-
-### Python Examples
-
-| Project | Description |
-|---------|-------------|
-| [simple-mcp](./simple-mcp) | A minimal example of an MCP server in Python using the `mcp` package |
-| [bing-images](./bing-images) | An MCP server that searches for images using the Bing Images API |
-| [crawl4ai-mcp](./crawl4ai-mcp) | An MCP server using Crawl4AI for web crawling and data extraction |
-| [qq-group-summary](./qq-group-summary) | An MCP server that summarizes QQ group conversations |
-
-### TypeScript Examples
-
-| Project | Description |
-|---------|-------------|
-| [my-browser](./my-browser) | An MCP server that provides browser automation capabilities using Puppeteer |
-| [smithery-my-browser](./smithery-my-browser) | Another browser automation MCP server using Smithery framework |
-
-### Go Examples
-
-| Project | Description |
-|---------|-------------|
-| [neo4j-go-server](./neo4j-go-server) | An MCP server that provides read-only access to Neo4j graph databases |
-
 ## Getting Started
 
 ### Prerequisites
 
 - Python 3.x (for Python examples)
-- Node.js (for TypeScript examples)
+- Node.js 18+ (for TypeScript examples)
 - Go (for Go examples)
 - [uv](https://docs.astral.sh/uv/) (recommended for Python projects)
+- tsx (recommended for Typescript projects)
 
-### Installation
+### How to launch MCP server
 
-1. Clone the repository:
-```bash
-git clone https://github.com/LSTM-Kirigaya/openmcp-tutorial.git
-cd openmcp-tutorial
-```
+1. Download [OpenMCP](https://kirigaya.cn/openmcp/plugin-tutorial/quick-start/acquire-openmcp.html) in vscode.
+2. Enter the project directory, click the entry file.
+3. Click [launch icon](https://kirigaya.cn/openmcp/plugin-tutorial/quick-start/first-mcp.html#one-click-connection-using-openmcp).
+4. Start by creating a new debug project and choosing [**Interactive Test**](https://kirigaya.cn/openmcp/plugin-tutorial/quick-start/put-into-llm.html#talking-to-a-large-model).
 
-2. Navigate to any project directory and follow the specific instructions in that project's README.
+## Want to become a contributor ?
 
-## How to Build MCP Servers in Different Languages
+Click [here](https://kirigaya.cn/openmcp/preview/join.html) to learn how to make contribution to OpenMCP.
 
-### Python
+## Join Our Community
 
-```bash
-cd ~/project/your-mcp-project
-uv init
-uv add mcp "mcp[cli]"
-```
+* QQ: 782833642
+* Wechat: contact 1193466151@qq.com
+* Discord: https://discord.gg/SKTZRf6NzU
 
-### TypeScript
-
-```bash
-# Navigate to your project directory
-cd my-browser  # or any TypeScript MCP project
-
-# Install dependencies
-npm install
-
-# Build the project
-npm run build
-```
-
-### Go
-
-```bash
-# Navigate to your project directory
-cd neo4j-go-server
-
-# Get dependencies
-go mod tidy
-
-# Run the project
-go run main.go
-```
-
-## Contributing
-
-Contributions are welcome! Feel free to submit issues or pull requests to improve these examples or add new ones.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a pull request
 
 ## License
 
