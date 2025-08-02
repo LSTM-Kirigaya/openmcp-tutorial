@@ -58,7 +58,7 @@ Click [here](https://kirigaya.cn/openmcp/preview/join.html) to learn how to make
 ## Join Our Community
 
 * QQ: 782833642
-* Wechat: contact 1193466151@qq.com
+* Wechat: contact zhelonghuang@qq.com
 * Discord: https://discord.gg/SKTZRf6NzU
 
 
