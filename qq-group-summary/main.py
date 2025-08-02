@@ -122,14 +122,16 @@ def lead_summary() -> str:
 
 你必须主动地调用 summarize_chat 和 summarize_user 这两个方法至少一次来返回总结的内容。
 
-调用 summarize_chat 时，你只需要挑选小于五位群友进行称号赋予就行，每一个群友最多一个称号，这一步类似 CSGO 的结算动画中给每一个小队成员的称号赋予。
+调用 summarize_chat 时，你只需要挑选小于五位群友进行称号赋予就行，每一个群友最多一个称号，每个称号只能赋给一个人。这一步类似 CSGO 的结算动画中给每一个小队成员的称号赋予。
 可选的称号有如下的几个：
 
 - 水群小能手: 进行发言，而且大部分都和技术没有关系的人
 - 技术专家: 贡献技术相关的话题的人，且主导了对话内容
 - 夜猫子: 经常在凌晨发言的人
-- 表情包批发商: 经常发表情包的人，获取图片的功能暂时没有实现，这个称号你现在不应该赋予任何人
+- 沉默终结者：经常开启话题的人
+- 表情包批发商: 经常发图片的人
 - KOL: 在某一个话题非常有发言权的关键人物
+- 剧作家：平均发言长度最长的人
 - ... (你可以自行进行拓展添加)
 
 当 summarize_chat 和 summarize_user 都被调用后，则调用 export_pdf 导出结果到 pdf
@@ -165,10 +167,16 @@ def summarize_user(params: SummarizeUserParams):
 )
 async def export_pdf(pdf_file_name: str):
     html = build_report()
+
+    # 确保扩展名
     if not pdf_file_name.endswith('.pdf'):
         pdf_file_name += '.pdf'
+
+    # 转为绝对路径
+    pdf_path = Path(pdf_file_name).resolve()
+
     if html is not None:
-        await html_to_pdf(html, pdf_file_name)
-        return pdf_file_name
+        await html_to_pdf(html, str(pdf_path))
+        return str(pdf_path)  # 返回绝对路径
     else:
         return None
