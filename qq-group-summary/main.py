@@ -86,11 +86,18 @@ class SummarizeUserTitle(BaseModel):
     name: str
     qq: int
     title: str
+    mbti: str
 
 class SummarizeUserParams(BaseModel):
     groupId: str
     titles: List[SummarizeUserTitle]
 
+
+class SummaryStatisticParams(BaseModel):
+    message_count: int
+    total_characters: int
+    participant_count: int
+    most_active_period: str
 
 @mcp.prompt()
 def lead_summary() -> str:
@@ -120,7 +127,7 @@ def lead_summary() -> str:
 - replyName(可能没有): 群友回复的群友名称
 - replyText(可能没有): 群友回复的群友发言的内容
 
-你必须主动地调用 summarize_chat 和 summarize_user 这两个方法至少一次来返回总结的内容。
+你必须主动地调用 summarize_chat, summarize_user 和 summary_statistic 这三个方法至少一次来返回总结的内容。
 
 调用 summarize_chat 时，你只需要挑选小于等于八位群友进行称号赋予就行，每一个群友最多一个称号，每个称号只能赋给一个人。这一步类似 CSGO 的结算动画中给每一个小队成员的称号赋予。
 ，可选的称号有如下的几个：
@@ -134,7 +141,7 @@ def lead_summary() -> str:
 - 剧作家：平均发言长度最长的人
 - ... (你可以自行进行拓展添加)
 
-当 summarize_chat 和 summarize_user 都被调用后，则调用 export_pdf 导出结果到 pdf
+当 summarize_chat, summarize_user 和 summary_statistic 都被调用后，则调用 export_pdf 导出结果到 pdf
 
 使用 export_pdf 函数的时候，导出的名字必须是 群聊总结.{年}.{月}.{日}.pdf , 比如 export_pdf("群聊总结.2025.08.03")
 
@@ -143,7 +150,7 @@ def lead_summary() -> str:
 """
 
 @mcp.tool(
-    description="对一段群聊消息进行总结，输出统计和成就称号"
+    description="对一段群聊消息进行总结，输出统计"
 )
 def summarize_chat(params: SummarizeChatParams):
     data = params.model_dump_json(indent=2)
@@ -154,7 +161,7 @@ def summarize_chat(params: SummarizeChatParams):
     return 'write to ' + json_path
 
 @mcp.tool(
-    description='总结群友的聊天表现'
+    description='总结群友的聊天表现和各自成就称号和 MBTI 表现'
 )
 def summarize_user(params: SummarizeUserParams):
     data = params.model_dump_json(indent=2)
@@ -182,3 +189,15 @@ async def export_pdf(pdf_file_name: str):
         return str(pdf_path)  # 返回绝对路径
     else:
         return None
+
+
+@mcp.tool(
+    description="提供群聊的基本统计信息"
+)
+def summary_statistic(params: SummaryStatisticParams):
+    data = params.model_dump_json(indent=2)
+    json_path = (report_dir / "src" / "summary_statistic.json").as_posix()
+    with open(json_path, "w") as f:
+        f.write(data)
+    
+    return 'write to ' + json_path

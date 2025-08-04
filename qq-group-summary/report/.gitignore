@@ -30,3 +30,4 @@ coverage
 *.tsbuildinfo
 summarize_chat.json
 summarize_user.json
+summary_statistic.json
