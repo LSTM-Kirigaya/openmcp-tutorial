@@ -5,6 +5,9 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "matplotlib>=3.10.6",
     "mcp[cli]>=1.12.2",
+    "networkx>=3.5",
     "pyppeteer>=2.0.0",
+    "requests>=2.32.5",
 ]

@@ -10,6 +10,8 @@ from mcp.server.fastmcp import FastMCP
 from pyppeteer import launch
 from pydantic import BaseModel
 
+from graph import export_to_relation_graph
+
 current_file_path = Path(__file__).resolve()
 current_dir_path = current_file_path.parent
 report_dir = current_dir_path / "report"
@@ -141,18 +143,17 @@ def lead_summary() -> str:
 - 剧作家：平均发言长度最长的人
 - ... (你可以自行进行拓展添加)
 
-当 summarize_chat, summarize_user 和 summary_statistic 都被调用后，则调用 export_pdf 导出结果到 pdf
+当 summarize_chat, summarize_user 和 summary_statistic 都被调用后，则调用 export_everything 导出结果
 
-使用 export_pdf 函数的时候，导出的名字必须是 群聊总结.{年}.{月}.{日}.pdf , 比如 export_pdf("群聊总结.2025.08.03")
+使用 export_everything 函数的时候，导出的名字必须是类似 群聊总结.{年}.{月}.{日} 的格式, 比如 export_everything("群聊总结.2025.08.03")
 
 接下来是用户的群聊数据 json：
 
 """
 
-@mcp.tool(
-    description="对一段群聊消息进行总结，输出统计"
-)
+@mcp.tool()
 def summarize_chat(params: SummarizeChatParams):
+    """对一段群聊消息进行总结，输出统计"""
     data = params.model_dump_json(indent=2)
     json_path = (report_dir / "src" / "summarize_chat.json").as_posix()
     with open(json_path, "w") as f:
@@ -160,10 +161,9 @@ def summarize_chat(params: SummarizeChatParams):
 
     return 'write to ' + json_path
 
-@mcp.tool(
-    description='总结群友的聊天表现和各自成就称号和 MBTI 表现'
-)
+@mcp.tool()
 def summarize_user(params: SummarizeUserParams):
+    """总结群友的聊天表现和各自成就称号和 MBTI 表现"""
     data = params.model_dump_json(indent=2)
     json_path = (report_dir / "src" / "summarize_user.json").as_posix()
     with open(json_path, "w") as f:
@@ -171,30 +171,36 @@ def summarize_user(params: SummarizeUserParams):
 
     return 'write to ' + json_path
 
-@mcp.tool(
-    description='将信息导出为 pdf'
-)
-async def export_pdf(pdf_file_name: str):
+@mcp.tool()
+async def export_everything(file_name: str):
+    """将信息导出为 pdf"""
     html = build_report()
 
-    # 确保扩展名
-    if not pdf_file_name.endswith('.pdf'):
-        pdf_file_name += '.pdf'
+    pdf_home = Path('summary_pdf')
+    relation_image_home = Path('summary_image')
+
+    if not pdf_home.exists():
+        pdf_home.mkdir(parents=True)
+
+    if not relation_image_home.exists():
+        relation_image_home.mkdir(parents=True)
 
     # 转为绝对路径
-    pdf_path = Path(pdf_file_name).resolve()
+    pdf_path = (pdf_home / Path(file_name + '.pdf')).resolve()
+    image_path = (relation_image_home / Path(file_name + '.png')).resolve()
 
     if html is not None:
         await html_to_pdf(html, str(pdf_path))
-        return str(pdf_path)  # 返回绝对路径
+        export_to_relation_graph(image_path)
+
+        return str(pdf_path), str(image_path)
     else:
         return None
 
 
-@mcp.tool(
-    description="提供群聊的基本统计信息"
-)
+@mcp.tool()
 def summary_statistic(params: SummaryStatisticParams):
+    """提供群聊的基本统计信息"""
     data = params.model_dump_json(indent=2)
     json_path = (report_dir / "src" / "summary_statistic.json").as_posix()
     with open(json_path, "w") as f:
