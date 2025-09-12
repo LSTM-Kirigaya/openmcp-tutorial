@@ -9,6 +9,296 @@
           "main.py"
         ],
         "url": "",
+        "cwd": "{workspace}/word-mcp",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/kirigaya",
+          "LOGNAME": "kirigaya",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/miniconda3/bin:/Users/kirigaya/miniconda3/condabin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/Users/kirigaya/.nvm/versions/node/v22.17.0/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/homebrew/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "kirigaya"
+        },
+        "serverInfo": {
+          "name": "word-mcp",
+          "version": "1.14.0"
+        },
+        "name": "word-mcp",
+        "version": "1.14.0"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/qq-group-summary",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/kirigaya",
+          "LOGNAME": "kirigaya",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/miniconda3/bin:/Users/kirigaya/miniconda3/condabin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/Users/kirigaya/.nvm/versions/node/v22.17.0/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/homebrew/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "kirigaya"
+        },
+        "serverInfo": {
+          "name": "ChatSummaryServer",
+          "version": "1.12.2"
+        },
+        "name": "ChatSummaryServer",
+        "version": "1.12.2"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/qq-group-summary",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/kirigaya",
+          "LOGNAME": "kirigaya",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/miniconda3/bin:/Users/kirigaya/miniconda3/condabin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/Users/kirigaya/.nvm/versions/node/v22.17.0/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/homebrew/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "kirigaya"
+        },
+        "serverInfo": {
+          "name": "ChatSummaryServer",
+          "version": "1.12.2"
+        },
+        "name": "ChatSummaryServer",
+        "version": "1.12.2"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/qq-group-summary",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/kirigaya",
+          "LOGNAME": "kirigaya",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/miniconda3/bin:/Users/kirigaya/miniconda3/condabin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/Users/kirigaya/.nvm/versions/node/v22.17.0/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/homebrew/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "kirigaya"
+        },
+        "serverInfo": {
+          "name": "ChatSummaryServer",
+          "version": "1.12.2"
+        },
+        "name": "ChatSummaryServer",
+        "version": "1.12.2"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/qq-group-summary",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/kirigaya",
+          "LOGNAME": "kirigaya",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/miniconda3/bin:/Users/kirigaya/miniconda3/condabin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/Users/kirigaya/.nvm/versions/node/v22.17.0/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/homebrew/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "kirigaya"
+        },
+        "serverInfo": {
+          "name": "ChatSummaryServer",
+          "version": "1.12.2"
+        },
+        "name": "ChatSummaryServer",
+        "version": "1.12.2"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/qq-group-summary",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/kirigaya",
+          "LOGNAME": "kirigaya",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/miniconda3/bin:/Users/kirigaya/miniconda3/condabin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/Users/kirigaya/.nvm/versions/node/v22.17.0/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/homebrew/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "kirigaya"
+        },
+        "serverInfo": {
+          "name": "ChatSummaryServer",
+          "version": "1.12.2"
+        },
+        "name": "ChatSummaryServer",
+        "version": "1.12.2"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/qq-group-summary",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/kirigaya",
+          "LOGNAME": "kirigaya",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/miniconda3/bin:/Users/kirigaya/miniconda3/condabin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/Users/kirigaya/.nvm/versions/node/v22.17.0/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/homebrew/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "kirigaya"
+        },
+        "serverInfo": {
+          "name": "ChatSummaryServer",
+          "version": "1.12.2"
+        },
+        "name": "ChatSummaryServer",
+        "version": "1.12.2"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/qq-group-summary",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/kirigaya",
+          "LOGNAME": "kirigaya",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/miniconda3/bin:/Users/kirigaya/miniconda3/condabin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/Users/kirigaya/.nvm/versions/node/v22.17.0/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/homebrew/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "kirigaya"
+        },
+        "serverInfo": {
+          "name": "ChatSummaryServer",
+          "version": "1.12.2"
+        },
+        "name": "ChatSummaryServer",
+        "version": "1.12.2"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/qq-group-summary",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/kirigaya",
+          "LOGNAME": "kirigaya",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/miniconda3/bin:/Users/kirigaya/miniconda3/condabin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/Users/kirigaya/.nvm/versions/node/v22.17.0/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/homebrew/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "kirigaya"
+        },
+        "serverInfo": {
+          "name": "ChatSummaryServer",
+          "version": "1.12.2"
+        },
+        "name": "ChatSummaryServer",
+        "version": "1.12.2"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
+        "cwd": "{workspace}/qq-group-summary",
+        "oauth": "",
+        "clientName": "openmcp.connect.STDIO",
+        "clientVersion": "0.0.1",
+        "env": {
+          "HOME": "/Users/kirigaya",
+          "LOGNAME": "kirigaya",
+          "PATH": "/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/opt/homebrew/opt/openjdk@11/bin:/Users/kirigaya/miniconda3/bin:/Users/kirigaya/miniconda3/condabin:/Users/kirigaya/.codigger/bin:/Users/kirigaya/.codigger/object/bin:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem-test:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem/scripts:/Users/kirigaya/.codigger/sense/raw-onecloud-mudem:/Users/kirigaya/.nvm/versions/node/v22.17.0/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/go/bin:/opt/homebrew/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/kirigaya/Applications/neo4j-community-4.4.44/bin",
+          "SHELL": "/bin/zsh",
+          "TERM": "xterm-256color",
+          "USER": "kirigaya"
+        },
+        "serverInfo": {
+          "name": "ChatSummaryServer",
+          "version": "1.12.2"
+        },
+        "name": "ChatSummaryServer",
+        "version": "1.12.2"
+      }
+    ],
+    [
+      {
+        "connectionType": "STDIO",
+        "command": "mcp",
+        "args": [
+          "run",
+          "main.py"
+        ],
+        "url": "",
         "cwd": "{workspace}/qq-group-summary",
         "oauth": "",
         "clientName": "openmcp.connect.STDIO",
