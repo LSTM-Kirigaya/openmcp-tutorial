@@ -285,15 +285,14 @@ def export_to_relation_graph(output_path: str) -> str:
         w,h = img.size
         return img_h_frac * (fig_h/fig_w) * (w/h)
 
-    # favicon
     if fav_img:
         fav_w_frac = img_width_frac(fav_img, IMG_H_FRAC)
-        left = current_x - fav_w_frac
-        left = max(left, pad)
-        ax_fav = fig.add_axes([left, pad, fav_w_frac, IMG_H_FRAC], zorder=40)
+        # left = current_x - fav_w_frac
+        # left = max(left, pad)
+        ax_fav = fig.add_axes([pad, pad, fav_w_frac, IMG_H_FRAC], zorder=40)
         ax_fav.imshow(fav_img)
         ax_fav.axis('off')
-        current_x = left - gap
+        # current_x = left - gap
 
     # qr
     if qr_img:
@@ -305,7 +304,7 @@ def export_to_relation_graph(output_path: str) -> str:
         current_x = left - gap
 
     # 文字
-    credit_txt = "由锦恢呈现"
+    credit_txt = "由 OpenMCP 呈现"
     copyright_txt = "LSTM-Kirigaya/openmcp-tutorial © 锦恢"
     fig.text(current_x, pad+IMG_H_FRAC*0.65, credit_txt, ha='right', va='center',
             fontproperties=zh_font, fontsize=15, color="#D5D5D5", zorder=50)
