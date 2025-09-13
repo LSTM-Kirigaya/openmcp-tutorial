@@ -145,6 +145,24 @@ def export_to_relation_graph(output_path: str) -> str:
 
     pos = nx.spring_layout(G, k=1.5, seed=42, iterations=200)
 
+    # 计算底部区域的高度（以图形坐标表示）
+    bottom_area_height = IMG_H_FRAC + 0.05  # 图标高度 + 额外间距
+    
+    # 调整节点位置以避免与底部区域重叠
+    y_values = [coord[1] for coord in pos.values()]
+    if y_values:  # 确保有节点
+        min_y = min(y_values)
+        max_y = max(y_values)
+        y_range = max_y - min_y
+        
+        if y_range > 0:
+            # 将所有节点上移，为底部区域腾出空间
+            scale_factor = 1.0 - bottom_area_height
+            
+            for node in pos:
+                # 归一化并缩放y坐标
+                normalized_y = (pos[node][1] - min_y) / y_range
+                pos[node] = (pos[node][0], normalized_y * scale_factor)
 
     # 绘制话题节点 - 调整样式
     topic_nodes = [n for n,d in G.nodes(data=True) if d.get("type")=="topic"]
@@ -285,14 +303,14 @@ def export_to_relation_graph(output_path: str) -> str:
         w,h = img.size
         return img_h_frac * (fig_h/fig_w) * (w/h)
 
-    if fav_img:
-        fav_w_frac = img_width_frac(fav_img, IMG_H_FRAC)
-        # left = current_x - fav_w_frac
-        # left = max(left, pad)
-        ax_fav = fig.add_axes([pad, pad, fav_w_frac, IMG_H_FRAC], zorder=40)
-        ax_fav.imshow(fav_img)
-        ax_fav.axis('off')
-        # current_x = left - gap
+    # if fav_img:
+    #     fav_w_frac = img_width_frac(fav_img, IMG_H_FRAC)
+    #     # left = current_x - fav_w_frac
+    #     # left = max(left, pad)
+    #     ax_fav = fig.add_axes([pad, pad, fav_w_frac, IMG_H_FRAC], zorder=40)
+    #     ax_fav.imshow(fav_img)
+    #     ax_fav.axis('off')
+    #     # current_x = left - gap
 
     # qr
     if qr_img:
