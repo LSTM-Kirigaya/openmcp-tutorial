@@ -26,7 +26,7 @@ async def get_web_markdown(url: str) -> str:
 )
 async def get_hacknews(topn: int = 3) -> str:
     return f'''
-请帮我搜集 https://news.ycombinator.com/ 最热门的前 {topn} 条信息。
+请帮我搜集 https://hn.aimaker.dev/category/top 最热门的前 {topn} 条信息。
 
 请一步步寻找，先罗列当前页面所有的超链接。
 
