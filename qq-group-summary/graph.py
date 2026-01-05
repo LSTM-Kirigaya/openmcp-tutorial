@@ -333,6 +333,8 @@ def export_to_relation_graph(output_path: str) -> str:
     # 保存 PNG
     # -------------------------
     plt.subplots_adjust(left=0.02, right=0.98, top=0.98, bottom=0.02)
+
+    print('Saving figure to %s', output_path)
     fig.savefig(output_path, dpi=DPI, bbox_inches='tight', pad_inches=0.2)
     plt.close(fig)
 
